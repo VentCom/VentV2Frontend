@@ -1,0 +1,127 @@
+@import 'tailwindcss';
+/* Fonts */
+@font-face {
+    font-family: 'TheLoveClub';
+    src: url('/assets/fonts/TheLoveClub.otf') format('opentype');
+    font-weight:400
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-Black.ttf') format('truetype');
+    font-weight:900
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-Bold.ttf') format('truetype');
+    font-weight:700
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-Regular.ttf') format('truetype');
+    font-weight:400
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-Light.ttf') format('truetype');
+    font-weight:300
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-Thin.ttf') format('truetype');
+    font-weight:100
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-BoldItalic.ttf') format('truetype');
+    font-weight:700;
+    font-style:italic
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-LightItalic.ttf') format('truetype');
+    font-weight:300;
+    font-style:italic
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('/assets/fonts/lato/Lato-ThinItalic.ttf') format('truetype');
+    font-weight:100;
+    font-style:italic;
+}
+
+@theme{
+    /* fonts */
+    --font-heading: 'TheLoveClub';
+    --font-body: 'Lato';
+
+    --color-brand-color-default: #00AAFE;
+    --color-black-scale-default: #000000;
+    --color-biege-drv-default: #FFFCF5;
+    --color-yellow-drv-default: #FFF700;
+
+    /* Brand colors */
+    --color-brand-color-001: #001119;
+    --color-brand-color-002: #002233;
+    --color-brand-color-003: #00334C;
+    --color-brand-color-004: #004466;
+    --color-brand-color-005: #006698;
+    --color-brand-color-006: #0088CB;
+    --color-brand-color-007: #00AAFE;
+    --color-brand-color-008: #33BBFE;
+    --color-brand-color-009: #66CCFE;
+    --color-brand-color-010: #99DDFF;
+    --color-brand-color-011: #B2E5FF;
+    --color-brand-color-012: #CCEEFF;
+    --color-brand-color-013: #E5F6FF;
+
+    /* Black scale colors */
+    --color-black-scale-001: #333333;
+    --color-black-scale-002: #666666;
+    --color-black-scale-003: #999999;
+    --color-black-scale-004: #B3B3B3;
+    --color-black-scale-005: #CCCCCC;
+    --color-black-scale-006: #E6E6E6;
+
+    /* Biege colors */
+    --color-biege-001: #1A1900;
+    --color-biege-002: #333100;
+    --color-biege-003: #4D4A00;
+    --color-biege-004: #666300;
+    --color-biege-005: #999400;
+    --color-biege-006: #CCC600;
+    --color-biege-007: #FFF700;
+    --color-biege-008: #FFF933;
+    --color-biege-009: #FFFA66;
+    --color-biege-010: #FFFC99;
+    --color-biege-011: #FFFDB2;
+    --color-biege-012: #FFFDCC;
+    --color-biege-013: #FFFEE5;
+
+    /* Orange colors */
+    --color-orange-001: #1A0900;
+    --color-orange-002: #331300;
+    --color-orange-003: #4D1C00;
+    --color-orange-004: #662600;
+
+    /*Layout colors*/
+    --color-auth-bg: var(--color-white);
+    --color-auth-heading: #000000;
+    --color-auth-subheading: #3B404A;
+    --color-auth-input-label: #000000;
+    --color-auth-input-placeholder: #B3B3B3;
+    --color-auth-input-border: #DFE3EC;
+    --color-auth-pass-hide-btn: #F2F4F7;
+    --color-auth-pass-hide-btn-text: #000000;
+    --color-auth-forgot-pass-container: #F2F4F7;
+    --color-auth-forgot-pass-text: #333333;
+    --color-auth-forgot-pass-btn: #FFFFFF;
+    --color-auth-forgot-pass-btn-text: #000000;
+}
