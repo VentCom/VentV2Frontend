@@ -111,6 +111,15 @@
     --color-orange-003: #4D1C00;
     --color-orange-004: #662600;
 
+    /* Green colors */
+    --color-green-012: #B2FFC4;
+    --color-green-014: #E5FFEB;
+    --color-green-005: #009923;
+
+    /* Orange colors */
+    --color-orange-013: #FFEFE5;
+    --color-orange-default: #FF2727;
+
     /*Layout colors*/
     --color-auth-bg: var(--color-white);
     --color-auth-heading: #000000;
@@ -124,4 +133,24 @@
     --color-auth-forgot-pass-text: #333333;
     --color-auth-forgot-pass-btn: #FFFFFF;
     --color-auth-forgot-pass-btn-text: #000000;
+
+    /* Dashboard colors */
+    --color-dashboard-bg: var(--color-white);
+    --color-dashboard-card-border: #E6E9EF;
+    --color-dashboard-card-divider: #F2F4F7;
+    --color-dashboard-header-border: #ECEEF3;
+    --color-dashboard-input-border: #E6E9EF;
+    --color-dashboard-heading: #242933;
+    --color-dashboard-text: #6A6E76;
+
+    /* Sidebar colors */
+    --color-dashboard-sidebar-text: #6A6E76;
+    --color-dashboard-sidebar-logo: #242933;
+    --color-sidebar-profile-name: #000000;
+    --color-sidebar-profile-role: #6A6E76;
+
+    /* Dropdown */
+    --color-dropdown-outline: #F8F9FC;
+    --color-dropdown-border: #F2F4F7;
+    --color-dropdown-heading: #666666
 }

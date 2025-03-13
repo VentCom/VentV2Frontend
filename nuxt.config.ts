@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   ssr: false,
   devtools: { enabled: true },
   modules: ["@nuxt/icon", "@vite-pwa/nuxt"],
-  css: ["~/assets/css/main.css"],
+  css: ["~/assets/css/main.css", "~/assets/css/transitions.css"],
   icon: {
     customCollections: [
       {
