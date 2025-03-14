@@ -1,7 +1,7 @@
 <template>
   <AppDropdown :widthIsFinite="false" :position="'right'">
     <ul
-      class="h-12 border border-dashboard-card-border inline-flex w-auto items-center gap-2 p-1 rounded-full place-items-center hover:border-brand-color-default shadow-lg shadow-transparent hover:shadow-brand-color-009/50 transition-all duration-300 ease-in-out"
+      class="h-12 border border-dashboard-card-border inline-flex w-auto items-center gap-0.5 p-1 rounded-full place-items-center hover:border-brand-color-default shadow-lg shadow-transparent hover:shadow-brand-color-009/50 transition-all duration-300 ease-in-out"
     >
       <li
         class="w-10 h-10 rounded-full overflow-hidden bg-brand-color-007 border border-dashboard-bg"

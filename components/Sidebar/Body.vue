@@ -2,19 +2,28 @@
 import { LinkList, LinkType } from "~/utils/data/SidebarLinks";
 
 const linkWrapper = LinkList;
+
+const { minimizeSideBar } = useSidebarHandler();
 </script>
 <template>
   <div class="flex-grow h-full overflow-y-auto">
     <div class="h-full overflow-y-scroll p-8">
       <ul
         class="flex flex-col w-full text-dashboard-sidebar-text mb-8"
+        :class="{
+          'md:mb-0': minimizeSideBar,
+          'md:mb-8': !minimizeSideBar,
+        }"
         v-for="(linkGroup, index) in linkWrapper"
         :key="index"
       >
         <template v-for="(link, index) in linkGroup" :key="index">
           <li
             v-if="link.type === LinkType.HEADING"
-            class="mb-4 text-[0.5rem] uppercase tracking-widest"
+            class="mb-4 text-[0.5rem] uppercase tracking-widest whitespace-nowrap"
+            :class="{
+              'md:hidden': minimizeSideBar,
+            }"
           >
             {{ link.name }}
           </li>
@@ -27,7 +36,14 @@ const linkWrapper = LinkList;
               <span class="block w-5 aspect-square">
                 <Icon :name="link.icon || ''" size="1.2rem"></Icon>
               </span>
-              <span class="mb-1"> {{ link.name }} </span>
+              <span
+                class="mb-1 whitespace-nowrap"
+                :class="{
+                  'md:hidden': minimizeSideBar,
+                }"
+              >
+                {{ link.name }}
+              </span>
             </NuxtLink>
           </li>
         </template>

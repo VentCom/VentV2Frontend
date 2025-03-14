@@ -4,14 +4,16 @@ import {
   UtilityBarActiveUsers,
   UtilityBarProfileAction,
 } from "#components";
+
+const { openSidebar } = useSidebarHandler();
 </script>
 
 <template>
   <aside
-    class="sticky flex items-stretch justify-between top-0 md:py-[1.24rem] bg-dashboard-bg/60 backdrop-blur-md border-b border-dashboard-card-border p-5 md:p-8"
+    class="sticky z-10 flex items-stretch justify-between top-0 md:py-[1.24rem] bg-dashboard-bg/60 backdrop-blur-md border-b border-dashboard-card-border p-5 md:p-8"
   >
     <!-- left side -->
-    <div class="inline-flex items-center">
+    <div class="inline-flex items-center gap-2">
       <!-- search bar desktop -->
       <div class="hidden md:block w-80 relative">
         <i
@@ -26,11 +28,34 @@ import {
         />
       </div>
       <!-- search bar desktop end-->
+
+      <!-- menu button -->
+      <button
+        @click="openSidebar"
+        class="md:hidden border h-10 aspect-square border-dashboard-card-border text-brand-color-default flex items-center justify-center rounded-lg hover:border-brand-color-default"
+      >
+        <icon name="vent:menu" size="1.3rem"></icon>
+      </button>
+      <!-- menu button -->
+
+      <!-- active admins -->
+      <div class="inline-block md:hidden">
+        <UtilityBarActiveUsers></UtilityBarActiveUsers>
+      </div>
+      <!-- active admins end-->
     </div>
     <!-- left side end-->
 
     <!-- right side -->
     <div class="flex items-center gap-2">
+      <!-- search -->
+      <button
+        class="md:hidden w-12 h-12 flex items-center rounded-full justify-center border border-dashboard-card-border text-black hover:text-brand-color-default"
+      >
+        <icon name="vent:search-normal" size="1.3rem"></icon>
+      </button>
+      <!-- search end-->
+
       <!-- notification -->
       <button
         class="w-12 h-12 flex items-center rounded-full justify-center border border-dashboard-card-border text-black hover:text-brand-color-default"
@@ -40,7 +65,9 @@ import {
       <!-- notification end-->
 
       <!-- active admins -->
-      <UtilityBarActiveUsers></UtilityBarActiveUsers>
+      <div class="hidden md:inline-block">
+        <UtilityBarActiveUsers></UtilityBarActiveUsers>
+      </div>
       <!-- active admins end-->
 
       <!-- profile action -->

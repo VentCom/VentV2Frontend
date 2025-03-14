@@ -6,9 +6,29 @@
  * - `toggleSideBar`: A function that toggles the `minimizeSideBar` state.
  */
 export const useSidebarHandler = () => {
-  const minimizeSideBar = useState("minimizeSideBar", () => false);
+  const minimizeSideBar = useState(
+    "useSidebarHandler.minimizeSideBar",
+    () => false
+  );
+  const sidebarOpened = useState(
+    "useSidebarHandler.sidebarOpened",
+    () => false
+  );
   const toggleSideBar = () => {
     minimizeSideBar.value = !minimizeSideBar.value;
   };
-  return { minimizeSideBar, toggleSideBar };
+
+  const closeSidebar = () => {
+    sidebarOpened.value = false;
+  };
+  const openSidebar = () => {
+    sidebarOpened.value = true;
+  };
+  return {
+    minimizeSideBar,
+    toggleSideBar,
+    openSidebar,
+    closeSidebar,
+    sidebarOpened,
+  };
 };

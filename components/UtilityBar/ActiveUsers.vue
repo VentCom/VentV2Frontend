@@ -4,7 +4,7 @@
   >
     <li
       class="w-10 h-10 rounded-full overflow-hidden bg-brand-color-007 border border-dashboard-bg relative first:ml-0 -ml-7 group-hover:ml-0 transition-all duration-300 ease-in-out"
-      v-for="(count, index) in 3"
+      v-for="(count, index) in 2"
       :key="index"
     ></li>
     <li

@@ -57,10 +57,48 @@
     font-style:italic;
 }
 
+/* Matter font */
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-Light.ttf') format('truetype');
+    font-weight:300;
+}
+
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-Regular.ttf') format('truetype');
+    font-weight:400;
+}
+
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-Medium.ttf') format('truetype');
+    font-weight:500;
+}
+
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-SemiBold.ttf') format('truetype');
+    font-weight:600;
+}
+
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-Bold.ttf') format('truetype');
+    font-weight:700;
+}
+
+@font-face {
+    font-family: 'Matter';
+    src: url('/assets/fonts/Matter/Matter-Heavy.ttf') format('truetype');
+    font-weight:800;
+}
+
 @theme{
     /* fonts */
     --font-heading: 'TheLoveClub';
     --font-body: 'Lato';
+    --font-alternative: 'Matter';
 
     --color-brand-color-default: #00AAFE;
     --color-black-scale-default: #000000;
@@ -110,6 +148,7 @@
     --color-orange-002: #331300;
     --color-orange-003: #4D1C00;
     --color-orange-004: #662600;
+    --color-orange-default: #FF5E00;
 
     /* Green colors */
     --color-green-012: #B2FFC4;
@@ -119,6 +158,13 @@
     /* Orange colors */
     --color-orange-013: #FFEFE5;
     --color-orange-default: #FF2727;
+
+    /* Gray colors */
+    --color-gray-*: initial;
+    --color-gray-001: #242933;
+    --color-gray-009: #ECEEF3;
+    --color-gray-010: #F2F4F7;
+    --color-gray-011: #F8F9FC;
 
     /*Layout colors*/
     --color-auth-bg: var(--color-white);
@@ -152,5 +198,12 @@
     /* Dropdown */
     --color-dropdown-outline: #F8F9FC;
     --color-dropdown-border: #F2F4F7;
-    --color-dropdown-heading: #666666
+    --color-dropdown-heading: #666666;
+
+    /* Business stats */
+    --color-business-stat-level: #C9CBCF;
+    --color-business-stat-currency: #6A6E76;
+    --color-business-stat-border: black;
+    --color-stat-level-1: #00B22D;
+    --color-stat-level-2: #E32900;
 }
