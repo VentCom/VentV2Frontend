@@ -77,3 +77,14 @@ html {
   opacity: 0;
   transform: scale(0.9,0.9);
 }
+
+.page-zoom-enter-active,
+.page-zoom-leave-active {
+  transition: all 0.4s ease;
+}
+
+.page-zoom-enter-from,
+.page-zoom-leave-to {
+  opacity: 0.3;
+  transform: scale(0.9,0.9);
+}

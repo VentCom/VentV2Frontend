@@ -13,7 +13,7 @@
       <!-- utility section end-->
 
       <main class="p-5 md:p-8">
-        <div class="max-w-[1404px] mx-auto">
+        <div class="max-w-[1600px] mx-auto">
           <slot />
         </div>
       </main>

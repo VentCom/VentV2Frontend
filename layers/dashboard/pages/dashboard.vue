@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 definePageMeta({
   layout: "dashboard",
+  pageTransition: { name: "page-zoom", mode: "out-in" },
 });
 </script>
 <template>
