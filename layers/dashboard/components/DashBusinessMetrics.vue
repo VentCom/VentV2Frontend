@@ -60,14 +60,34 @@ const setLevelColor = (stat: BusinessStatsData, level: number = 0): string => {
     class="md:col-span-2 border border-dashboard-card-border rounded-xl p-6 grid grid-cols-1 gap-11"
   >
     <!-- Heading -->
-    <div class="border-b border-dashboard-card-divider pb-4">
-      <h2 class="font-bold text-dashboard-heading mb-1 text-base md:text-xl">
-        Business Metrics Outlook
-      </h2>
-      <p class="text-[0.813rem]">
-        Your Outlook provides a comprehensive view of VENT Inc.'s business
-        activities across all product lines.
-      </p>
+    <div
+      class="border-b border-dashboard-card-divider pb-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between"
+    >
+      <div class="w-full">
+        <h2 class="font-bold text-dashboard-heading mb-1 text-base md:text-xl">
+          Business Metrics Outlook
+        </h2>
+        <p class="text-[0.813rem]">
+          Your Outlook provides a comprehensive view of VENT Inc.'s business
+          activities across all product lines.
+        </p>
+      </div>
+
+      <div class="w-full md:inline-block md:w-auto shrink-0">
+        <button
+          class="cursor-pointer flex gap-3 items-center rounded-full py-3 px-4 text-dashboard-heading bg-gray-011 border border-gray-009 capitalize text-sm font-bold hover:border-brand-color-default transition-all duration-300 ease-in-out shadow shadow-transparent hover:shadow-brand-color-009/50"
+        >
+          <ul class="flex items-center gap-1">
+            <li class="pt-1 text-dashboard-text">
+              <Icon name="vent:calendar" size="1.3rem"></Icon>
+            </li>
+            <li>Today - 3rd Mar.</li>
+          </ul>
+          <i class="w-4 block aspect-square overflow-hidden">
+            <Icon name="vent:arrow-down" size="1rem"></Icon>
+          </i>
+        </button>
+      </div>
     </div>
     <!-- Heading end -->
 
@@ -142,7 +162,7 @@ const setLevelColor = (stat: BusinessStatsData, level: number = 0): string => {
 @reference "~/assets/css/main.css";
 
 .divider-horizontal {
-  @apply bg-dashboard-card-border w-full h-1;
+  @apply bg-dashboard-card-border w-full h-0.5;
   border-radius: 100%;
 }
 .divider-vertical {

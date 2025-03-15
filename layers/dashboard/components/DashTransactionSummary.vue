@@ -15,6 +15,7 @@ type TotalStatistics = {
   name: string;
   count: number;
   color: string;
+  hasDivider: boolean;
 };
 
 const assets = ref<AssetData[]>([
@@ -51,17 +52,26 @@ const totalStatistics = ref<TotalStatistics[]>([
   {
     name: "Pending",
     count: 40,
-    color: "#00AAFE",
+    color: "bg-orange-default",
+    hasDivider: true,
   },
   {
     name: "Completed",
     count: 15,
-    color: "#00FF3B",
+    color: "bg-gray-001",
+    hasDivider: false,
   },
   {
     name: "Unconfirmed",
     count: 5,
-    color: "#FFF700",
+    color: "bg-brand-color-default",
+    hasDivider: true,
+  },
+  {
+    name: "Post-no-debit",
+    count: 5,
+    color: "bg-gray-010",
+    hasDivider: false,
   },
 ]);
 
@@ -149,18 +159,22 @@ const dividerIsNotLast = (index: number, dataCount: number): boolean => {
       <!-- Assets Stats end-->
 
       <!-- transaction count -->
-      <div class="flex items-center justify-between gap-4 mt-5">
+      <div
+        class="flex items-center justify-between flex-wrap md:flex-nowrap gap-4 mt-5"
+      >
         <span
           class="flex-shrink-0 font-semibold text-xl md:text-[3rem] text-dashboard-heading"
           >51%
         </span>
 
-        <div class="flex-grow text-dashboard-text text-xs md:text-[0.813rem]">
+        <div
+          class="w-[80%] md:w-full md:flex-grow text-dashboard-text text-xs md:text-[0.813rem]"
+        >
           Of the day's transactional volume have successfully been completed by
           two Admins who commenced their shifts earlier prior to yours.
         </div>
 
-        <div class="shrink-0">
+        <div class="shrink-0 w-full md:w-auto">
           <button
             class="cursor-pointer flex gap-2 items-center rounded-full py-3 px-4 text-dashboard-heading bg-gray-011 border border-gray-009 uppercase text-sm font-bold hover:border-brand-color-default transition-all duration-300 ease-in-out shadow shadow-transparent hover:shadow-brand-color-009/50"
           >
@@ -177,23 +191,30 @@ const dividerIsNotLast = (index: number, dataCount: number): boolean => {
     <!-- Legend -->
     <div class="p-6">
       <ul class="flex items-stretch flex-wrap md:flex-nowrap gap-4">
-        <template v-for="(stat, index) in 4" :key="index">
+        <template v-for="(stat, index) in totalStatistics" :key="index">
           <li class="flex flex-col items-start gap-2 w-[40%] md:w-[25%]">
             <i
               class="block w-2 aspect-square rounded-full"
-              :style="{
-                background: '#FFF700',
-              }"
+              :class="[stat.color]"
             ></i>
 
             <h3
               class="text-[0.6rem] uppercase tracking-widest text-dropdown-heading"
             >
-              Completed
+              {{ stat.name }}
             </h3>
+
+            <span class="font-bold text-dashboard-heading text-sm">
+              {{ stat.count }}
+            </span>
           </li>
 
-          <div class="divider-vertical"></div>
+          <div
+            class="last:hidden divider-vertical"
+            :class="{
+              'hidden md:inline-block': !stat.hasDivider,
+            }"
+          ></div>
           <div
             v-if="dividerIsEven(index) && dividerIsNotLast(index, 4)"
             class="divider-horizontal md:hidden"

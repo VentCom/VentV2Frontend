@@ -26,6 +26,10 @@ definePageMeta({
       <!-- Business metrics end-->
 
       <DashTransactionSummary></DashTransactionSummary>
+
+      <div>
+        <DashPaymentGateway> </DashPaymentGateway>
+      </div>
     </div>
   </div>
 </template>

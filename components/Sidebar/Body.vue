@@ -30,9 +30,17 @@ const { minimizeSideBar } = useSidebarHandler();
           <li v-else>
             <NuxtLink
               :to="link.route"
-              class="sidebar-link"
+              class="sidebar-link group"
               active-class="active"
             >
+              <!-- tooltip -->
+              <!-- <span
+                class="absolute left-[102%] bg-dashboard-bg border border-dashboard-card-border rounded-lg py-2 px-4 text-sm font-bold z-50 hidden group-hover:inline-block"
+              >
+                {{ link.name }}
+              </span> -->
+              <!-- tooltip end -->
+
               <span class="block w-5 aspect-square">
                 <Icon :name="link.icon || ''" size="1.2rem"></Icon>
               </span>
@@ -57,6 +65,7 @@ const { minimizeSideBar } = useSidebarHandler();
 .sidebar-link {
   @apply p-3.5 flex w-full items-center capitalize gap-2 relative z-2 font-bold text-sm;
   @apply transition duration-500 ease-in-out;
+  overflow: visible;
 }
 
 .sidebar-link::after {
