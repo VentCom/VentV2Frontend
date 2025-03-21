@@ -1,0 +1,3 @@
+<template>
+  <AuthoriserVerify></AuthoriserVerify>
+</template>

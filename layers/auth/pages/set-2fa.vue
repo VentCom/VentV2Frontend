@@ -1,0 +1,3 @@
+<template>
+  <AuthoriserScan></AuthoriserScan>
+</template>

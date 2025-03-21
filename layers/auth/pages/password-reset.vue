@@ -1,0 +1,3 @@
+<template>
+  <PasswordReset></PasswordReset>
+</template>

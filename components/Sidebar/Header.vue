@@ -27,12 +27,13 @@ const { minimizeSideBar, toggleSideBar, closeSidebar } = useSidebarHandler();
           Vent Inc.
         </h1>
       </li>
-      <li>
+      <li class="relative">
         <button
           @click="toggleSideBar"
-          class="hidden md:block w-[33px] p-1.5 bg-brand-color-default rounded-lg cursor-pointer"
+          class="hidden md:block w-[33px] p-1.5 bg-brand-color-default rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
           :class="{
-            'md:mb-2': minimizeSideBar,
+            'md:mb-2 bg-brand-color-default': minimizeSideBar,
+            ' bg-dashboard-header-border': !minimizeSideBar,
           }"
         >
           <span
@@ -53,6 +54,12 @@ const { minimizeSideBar, toggleSideBar, closeSidebar } = useSidebarHandler();
           <icon name="vent:close" size="1.3rem"></icon>
         </button>
         <!-- close side bar end-->
+
+        <!-- <div class="absolute top-[100%] right-0 md:left-0 pt-3 z-40">
+          <div
+            class="w-[274px] shadow-xl shadow-[#354A681F] p-6 bg-dashboard-bg border border-dashboard-card-border relative rounded-lg before:content after:content-[''] after:absolute after:w-3 after:aspect-square after:-top-1.5 after:border-b-0 after:border-r-0 after:left-2 after:rotate-45 after:bg-dashboard-bg after:border after:border-dashboard-card-border"
+          ></div>
+        </div> -->
       </li>
     </ul>
   </div>

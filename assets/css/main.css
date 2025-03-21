@@ -170,15 +170,18 @@
     --color-auth-bg: var(--color-white);
     --color-auth-heading: #000000;
     --color-auth-subheading: #3B404A;
-    --color-auth-input-label: #000000;
-    --color-auth-input-placeholder: #B3B3B3;
-    --color-auth-input-border: #DFE3EC;
+    --color-input-label: #000000;
+    --color-input-text: #000000;
+    --color-input-placeholder: #B3B3B3;
+    --color-input-border: #DFE3EC;
     --color-auth-pass-hide-btn: #F2F4F7;
     --color-auth-pass-hide-btn-text: #000000;
     --color-auth-forgot-pass-container: #F2F4F7;
     --color-auth-forgot-pass-text: #333333;
     --color-auth-forgot-pass-btn: #FFFFFF;
     --color-auth-forgot-pass-btn-text: #000000;
+    --color-default-text: #000000;
+    --color-default-bg: #FFFFFF;
 
     /* Dashboard colors */
     --color-dashboard-bg: var(--color-white);
@@ -206,4 +209,6 @@
     --color-business-stat-border: black;
     --color-stat-level-1: #00B22D;
     --color-stat-level-2: #E32900;
+
+
 }
