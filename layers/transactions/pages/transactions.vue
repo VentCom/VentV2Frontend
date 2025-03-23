@@ -5,7 +5,13 @@ definePageMeta({
 });
 </script>
 <template>
-  <div>
-    <TransactOverview></TransactOverview>
+  <div class="w-full flex flex-col gap-7">
+    <div class="w-full">
+      <TransactOverview></TransactOverview>
+    </div>
+
+    <div class="w-full">
+      <TransactionList></TransactionList>
+    </div>
   </div>
 </template>

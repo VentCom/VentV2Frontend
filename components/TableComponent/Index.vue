@@ -61,14 +61,19 @@ const generateGridClass = (span: number) => {
   <div class="w-full font-body">
     <div
       class="container mx-auto border border-dashboard-card-border rounded-2xl p-4 md:p-6 py-6"
+      role="table"
     >
+      <!-- heading content -->
       <div class="mb-4">
         <slot name="table-heading" />
       </div>
+      <!-- heading content end -->
 
       <template v-if="!isLoading && bodyData.length > 0">
+        <!-- table header -->
         <ul
           class="hidden md:grid px-3 py-4 text-sm font-medium gap-3 text-dashboard-heading grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)] bg-table-heading-bg rounded-2xl"
+          role="row"
           :style="{
             '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
             '--md-cols': generateGridClass(props.grid_cols_md || 0),
@@ -78,6 +83,8 @@ const generateGridClass = (span: number) => {
           <li
             v-for="(column, index) in headings"
             :key="index"
+            :aria-label="column.name"
+            role="columnheader"
             class="col-span-[var(--xs-cols)] md:col-span-[var(--md-cols)] lg:col-span-[var(--lg-cols)]"
             :style="{
               '--xs-cols': column.span_xs,
@@ -85,9 +92,18 @@ const generateGridClass = (span: number) => {
               '--lg-cols': column.span_lg,
             }"
           >
-            <button class="flex items-center gap-2 group cursor-pointer">
+            <button
+              class="flex items-center gap-2 group cursor-pointer w-full"
+              :class="{
+                'justify-center': column.justify === 'center',
+                'justify-left':
+                  column.justify === 'left' || column.justify === null,
+                'justify-right': column.justify === 'right',
+              }"
+            >
               <span>{{ column.name }}</span>
               <i
+                v-if="column.sortable"
                 class="inline-block mt-0.5 text-dashboard-sidebar-text/60 group-hover:text-brand-color-default"
               >
                 <Icon name="vent:column-select" size="0.8rem"></Icon>
@@ -95,27 +111,34 @@ const generateGridClass = (span: number) => {
             </button>
           </li>
         </ul>
+        <!-- table header end -->
+
+        <!-- table body -->
         <div class="flex flex-col gap-4 md:gap-0 px-1">
-          <nuxt-link
-            custom
-            :to="setRoute(row[routeParamName] || '')"
-            v-slot="{ navigate }"
+          <ul
             v-for="(row, index) in bodyData"
             :key="index"
+            role="row"
+            class="grid cursor-pointer gap-3 px-3 py-5 text-sm border border-dashboard-card-border md:border-b md:border-0 hover:bg-brand-color-013/40 md:rounded-none rounded-lg relative grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)]"
+            :style="{
+              '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
+              '--md-cols': generateGridClass(props.grid_cols_md || 0),
+              '--lg-cols': generateGridClass(props.grid_cols_lg || 0),
+            }"
+            tabindex="0"
           >
-            <ul
-              @click.prevent="
-                () => (canNavigate ? navigate() : triggerEvent(row))
-              "
-              class="grid cursor-pointer gap-3 px-3 py-5 text-sm border border-dashboard-card-border md:border-b md:border-0 hover:bg-brand-color-013/40 md:rounded-none rounded-lg relative grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)]"
-              :style="{
-                '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
-                '--md-cols': generateGridClass(props.grid_cols_md || 0),
-                '--lg-cols': generateGridClass(props.grid_cols_lg || 0),
-              }"
-              tabindex="0"
+            <nuxt-link
+              custom
+              :to="setRoute(row[routeParamName] || '')"
+              v-slot="{ navigate }"
             >
               <li
+                @click.prevent="
+                  () => (canNavigate ? navigate() : triggerEvent(row))
+                "
+                role="cell"
+                :aria-describedby="rowColumn.name"
+                tabindex="-1"
                 :class="[
                   'md:block',
                   'break-words',
@@ -141,9 +164,10 @@ const generateGridClass = (span: number) => {
                   </slot>
                 </div>
               </li>
-            </ul>
-          </nuxt-link>
+            </nuxt-link>
+          </ul>
         </div>
+        <!-- table body end-->
 
         <div class="mt-4">
           <slot name="table-footer" />

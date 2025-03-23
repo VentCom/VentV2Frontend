@@ -156,6 +156,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 2,
     span_lg: 2,
+    sortable: true,
   },
   {
     name: "Slogan",
@@ -163,6 +164,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 2,
     span_lg: 2,
+    sortable: true,
   },
   {
     name: "Code",
@@ -170,6 +172,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
   {
     name: "Longcode",
@@ -177,6 +180,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
   {
     name: "Gateway",
@@ -184,6 +188,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
   {
     name: "Status",
@@ -191,6 +196,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
   {
     name: "Type",
@@ -198,6 +204,7 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
   {
     name: "Currency",
@@ -205,5 +212,6 @@ export const bankDataHeader: ITableHeaderData[] = [
     span_xs: 1,
     span_md: 1,
     span_lg: 1,
+    sortable: true,
   },
 ];
