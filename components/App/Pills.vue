@@ -11,7 +11,7 @@ const props = withDefaults(
 const getProps = computed(() => props);
 </script>
 <template>
-  <span class="px-2.5 py-1 rounded-full inline-block" :class="getProps.color">
+  <span class="px-2.5 py-0.5 rounded-full inline-block" :class="getProps.color">
     <slot></slot>
   </span>
 </template>

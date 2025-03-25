@@ -12,6 +12,7 @@ const data = transactionListBody;
   <TableComponent
     :headings="header"
     :body="data"
+    :rowRoute="'/transactions/$'"
     :grid_cols_md="8"
     :grid_cols_lg="8"
     :grid_cols_xs="1"

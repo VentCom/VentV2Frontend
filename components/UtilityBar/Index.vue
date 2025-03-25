@@ -2,6 +2,7 @@
 import {
   AppDropdown,
   UtilityBarActiveUsers,
+  UtilityBarClockInBtn,
   UtilityBarProfileAction,
 } from "#components";
 
@@ -55,6 +56,10 @@ const { openSidebar } = useSidebarHandler();
         <icon name="vent:search-normal" size="1.3rem"></icon>
       </button>
       <!-- search end-->
+
+      <div class="hidden md:inline-block">
+        <UtilityBarClockInBtn></UtilityBarClockInBtn>
+      </div>
 
       <!-- notification -->
       <button

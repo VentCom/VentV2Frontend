@@ -60,7 +60,7 @@ const generateGridClass = (span: number) => {
 <template>
   <div class="w-full font-body">
     <div
-      class="container mx-auto border border-dashboard-card-border rounded-2xl p-4 md:p-6 py-6"
+      class="border border-dashboard-card-border rounded-2xl p-4 md:p-6 py-6"
       role="table"
     >
       <!-- heading content -->
