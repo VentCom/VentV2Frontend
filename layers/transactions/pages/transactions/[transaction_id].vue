@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import {
   AppBreadcrumb,
-  AppPills,
-  TransactionDetails,
+  TransactionInformation,
   TransactionUserData,
 } from "#components";
 import type { BreadcrumbData } from "~/utils/types/misc/BreadcrumbData";
@@ -34,7 +33,7 @@ const breadcrumbList: BreadcrumbData[] = [
     <!-- transactor biodata -->
 
     <!--transaction data tabs -->
-    <TransactionDetails></TransactionDetails>
+    <TransactionInformation></TransactionInformation>
     <!--transaction data tabs end-->
   </div>
 </template>

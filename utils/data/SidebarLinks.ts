@@ -35,10 +35,10 @@ export const LinkList: LinkData[][] = [
       route: "/transactions",
     },
     {
-      name: "Remittances",
+      name: "Settlements",
       type: LinkType.LINK,
       icon: "vent:agreement",
-      route: "/remittances",
+      route: "/settlements",
     },
     {
       name: "Admins",

@@ -12,7 +12,7 @@
       <UtilityBar></UtilityBar>
       <!-- utility section end-->
 
-      <main class="p-5 md:p-8">
+      <main class="p-5 md:p-8 pb-20 md:pb-20">
         <div class="max-w-[1600px] mx-auto">
           <slot />
         </div>
