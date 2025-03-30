@@ -1,5 +1,9 @@
 <template>
-  <div class="flex justify-center md:justify-end">
+  <div class="flex justify-center md:justify-between md:items-center">
+    <p class="text-base hidden md:inline text-dashboard-text-light">
+      Showing - 1 to 8 of 235,000 Entries
+    </p>
+
     <div class="flex gap-2">
       <button
         class="rounded-xl p-2 md:p-3 bg-brand-color-default text-white disabled:bg-gray-009 disabled:text-dashboard-text shrink-0"

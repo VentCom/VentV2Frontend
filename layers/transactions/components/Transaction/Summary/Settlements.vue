@@ -26,10 +26,10 @@ import { AppButton, AppPills, TransactionSettlementsCard } from "#components";
     <!-- heading end -->
 
     <!-- Setllement list -->
-    <TransactionSummarySettlementsCard
+    <TransactionSummarySettlementCard
       v-for="(count, index) in 2"
       :key="index"
-    ></TransactionSummarySettlementsCard>
+    ></TransactionSummarySettlementCard>
     <!-- Setllement list end-->
 
     <!-- Restrict settlement -->

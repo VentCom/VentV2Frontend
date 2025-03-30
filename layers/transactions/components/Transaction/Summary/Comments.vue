@@ -20,7 +20,7 @@ import { AppButton, TransactionCommentsCard } from "#components";
     <div class="p-6 relative group">
       <textarea
         name=""
-        class="w-full border-0 outline-0 relative z-2 peer text-dashboard-text placeholder:text-dashboard-text-light"
+        class="w-full border-0 outline-0 relative z-2 peer text-dashboard-text placeholder:text-dashboard-text-lighter"
         rows="3"
         placeholder="Type something.."
         id=""
