@@ -23,6 +23,17 @@ html {
   transform: translateX(-80%);
 }
 
+.slideInLeft-enter-active,
+.slideInLeft-leave-active {
+  transition: all 0.5s ease;
+}
+
+.slideInLeft-enter-from,
+.slideInLeft-leave-to {
+  opacity: 0;
+  transform: translateX(80%);
+}
+
 .slideDown-enter-active,
 .slideDown-leave-active {
   transition: all 0.5s ease;

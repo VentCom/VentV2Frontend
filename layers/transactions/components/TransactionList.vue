@@ -13,9 +13,10 @@ const data = transactionListBody;
     :headings="header"
     :body="data"
     :rowRoute="'/transactions/$'"
-    :grid_cols_md="8"
-    :grid_cols_lg="8"
-    :grid_cols_xs="1"
+    :cell-row-count="2"
+    :grid_cols_md="5"
+    :grid_cols_lg="5"
+    :grid_cols_xs="2"
   >
     <template #table-heading>
       <TableComponentHeader
@@ -43,17 +44,25 @@ const data = transactionListBody;
     </template>
 
     <template #col_user_name="props">
-      <p>{{ props.rowData.user_name }}</p>
-      <span class="text-dashboard-text text-[0.6rem]">{{
-        props.rowData.user_email
-      }}</span>
+      <ul class="flex items-center gap-2">
+        <li class="shrink-0">
+          <img
+            src="/img/user.jpeg"
+            class="w-[40px] aspect-square rounded-full object-center object-cover"
+            alt="User image"
+          />
+        </li>
+        <li>
+          <p>{{ props.rowData.user_name }}</p>
+          <span class="text-dashboard-text text-[0.6rem]">{{
+            props.rowData.user_email
+          }}</span>
+        </li>
+      </ul>
     </template>
 
     <template #col_deposit="props">
       <p>{{ props.rowData.deposit }}</p>
-      <span class="text-dashboard-text text-[0.55rem] uppercase tracking-widest"
-        >Worth of {{ props.rowData.asset }}</span
-      >
     </template>
 
     <template #col_action>

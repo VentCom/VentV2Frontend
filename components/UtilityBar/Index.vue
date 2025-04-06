@@ -1,15 +1,28 @@
 <script setup lang="ts">
 import {
   AppDropdown,
+  AppSideModal,
+  Notifications,
   UtilityBarActiveUsers,
   UtilityBarClockInBtn,
   UtilityBarProfileAction,
 } from "#components";
 
 const { openSidebar } = useSidebarHandler();
+
+const notificationModal = ref({
+  showDialogBox: () => {},
+  hideDialogBox: () => {},
+});
 </script>
 
 <template>
+  <Teleport to="body">
+    <AppSideModal ref="notificationModal">
+      <Notifications></Notifications>
+    </AppSideModal>
+  </Teleport>
+
   <aside
     class="sticky z-10 flex items-stretch justify-between top-0 md:py-[1.24rem] bg-dashboard-bg/60 backdrop-blur-md border-b border-dashboard-card-border p-5 md:p-8"
   >
@@ -63,7 +76,8 @@ const { openSidebar } = useSidebarHandler();
 
       <!-- notification -->
       <button
-        class="w-12 h-12 flex items-center rounded-full justify-center border border-dashboard-card-border text-black hover:text-brand-color-default"
+        class="w-12 cursor-pointer h-12 flex items-center rounded-full justify-center border border-dashboard-card-border text-black hover:text-brand-color-default"
+        @click="notificationModal.showDialogBox"
       >
         <icon name="vent:notification" size="1.3rem"></icon>
       </button>

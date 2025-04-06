@@ -15,6 +15,7 @@ const props = withDefaults(
     totalPages?: number;
     currentPage?: number;
     rowRoute?: string;
+    cellRowCount?: number;
     canNavigate?: boolean;
     grid_cols_xs?: number | 2;
     grid_cols_md?: number | 7;
@@ -26,6 +27,8 @@ const props = withDefaults(
       {
         name: "",
         id: "",
+        cellRow: 1,
+        showHeading: true,
       },
     ],
     body: () => [
@@ -37,6 +40,7 @@ const props = withDefaults(
     canSearch: false,
     isLoading: false,
     showPagination: false,
+    cellRowCount: 1,
     totalPages: 1,
     currentPage: 1,
     rowRoute: "",
@@ -60,71 +64,25 @@ const generateGridClass = (span: number) => {
 <template>
   <div class="w-full font-body">
     <div
-      class="border border-dashboard-card-border rounded-2xl p-4 md:p-6 py-6"
+      class="border border-dashboard-card-border rounded-2xl p-6"
       role="table"
     >
       <!-- heading content -->
-      <div class="mb-4">
+      <div class="pb-5">
         <slot name="table-heading" />
       </div>
       <!-- heading content end -->
 
       <template v-if="!isLoading && bodyData.length > 0">
-        <!-- table header -->
-        <ul
-          class="hidden md:grid px-3 py-4 text-sm font-medium gap-3 text-dashboard-heading grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)] bg-table-heading-bg rounded-2xl"
-          role="row"
-          :style="{
-            '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
-            '--md-cols': generateGridClass(props.grid_cols_md || 0),
-            '--lg-cols': generateGridClass(props.grid_cols_lg || 0),
-          }"
-        >
-          <li
-            v-for="(column, index) in headings"
-            :key="index"
-            :aria-label="column.name"
-            role="columnheader"
-            class="col-span-[var(--xs-cols)] md:col-span-[var(--md-cols)] lg:col-span-[var(--lg-cols)]"
-            :style="{
-              '--xs-cols': column.span_xs,
-              '--md-cols': column.span_md,
-              '--lg-cols': column.span_lg,
-            }"
-          >
-            <button
-              class="flex items-center gap-2 group cursor-pointer w-full"
-              :class="{
-                'justify-center': column.justify === 'center',
-                'justify-left':
-                  column.justify === 'left' || column.justify === null,
-                'justify-right': column.justify === 'right',
-              }"
-            >
-              <span>{{ column.name }}</span>
-              <i
-                v-if="column.sortable"
-                class="inline-block mt-0.5 text-dashboard-sidebar-text/60 group-hover:text-brand-color-default"
-              >
-                <Icon name="vent:column-select" size="0.8rem"></Icon>
-              </i>
-            </button>
-          </li>
-        </ul>
-        <!-- table header end -->
-
         <!-- table body -->
-        <div class="flex flex-col gap-4 md:gap-0 px-1">
-          <ul
+        <div
+          class="flex flex-col gap-2.5 p-2.5 bg-[#FAFAFA] border border-dashboard-card-border rounded-lg"
+        >
+          <div
             v-for="(row, index) in bodyData"
             :key="index"
             role="row"
-            class="grid cursor-pointer gap-3 px-3 py-5 text-sm border border-dashboard-card-border md:border-b md:border-0 hover:bg-brand-color-013/40 md:rounded-none rounded-lg relative grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)]"
-            :style="{
-              '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
-              '--md-cols': generateGridClass(props.grid_cols_md || 0),
-              '--lg-cols': generateGridClass(props.grid_cols_lg || 0),
-            }"
+            class="cursor-pointer px-3 md:px-6 text-sm border border-dashboard-card-border bg-white hover:bg-brand-color-013/40 rounded-lg relative hover:border-brand-color-default transition-colors duration-400"
             tabindex="0"
           >
             <nuxt-link
@@ -132,40 +90,56 @@ const generateGridClass = (span: number) => {
               :to="setRoute(row[routeParamName] || '')"
               v-slot="{ navigate }"
             >
-              <li
-                @click.prevent="
-                  () => (canNavigate ? navigate() : triggerEvent(row))
-                "
-                role="cell"
-                :aria-describedby="rowColumn.name"
-                tabindex="-1"
-                :class="[
-                  'md:block',
-                  'break-words',
-                  rowColumn.is_hidden_xs && 'hidden',
-                ]"
-                class="flex justify-between items-start gap-2 md:col-span-[var(--md-cols)] lg:col-span-[var(--lg-cols)]"
-                :style="{
-                  '--md-cols': rowColumn.span_md,
-                  '--lg-cols': rowColumn.span_lg,
-                }"
-                v-for="(rowColumn, index) in headings"
+              <ul
+                v-for="(cellRow, index) in cellRowCount"
                 :key="index"
+                class="w-full grid grid-cols-[var(--xs-cols)] md:grid-cols-[var(--md-cols)] lg:grid-cols-[var(--lg-cols)] py-5 gap-y-4 gap-x-3 first:border-t-0 border-t border-dashed border-dashboard-card-border"
+                :style="{
+                  '--xs-cols': generateGridClass(props.grid_cols_xs || 0),
+                  '--md-cols': generateGridClass(props.grid_cols_md || 0),
+                  '--lg-cols': generateGridClass(props.grid_cols_lg || 0),
+                }"
               >
-                <span class="block md:hidden text-[0.7rem] text-dashboard-text">
-                  {{ rowColumn.name }}
-                </span>
+                <template v-for="(rowColumn, index) in headings" :key="index">
+                  <li
+                    @click.prevent="
+                      () => (canNavigate ? navigate() : triggerEvent(row))
+                    "
+                    role="cell"
+                    v-if="rowColumn.cellRow === cellRow"
+                    :aria-describedby="rowColumn.name"
+                    tabindex="-1"
+                    :class="[
+                      'md:block',
+                      'break-words',
+                      rowColumn.is_hidden_xs && 'hidden',
+                    ]"
+                    class="flex flex-col items-start col-span-[var(--xs-cols)] md:col-span-[var(--md-cols)] lg:col-span-[var(--lg-cols)]"
+                    :style="{
+                      '--xs-cols': rowColumn.span_xs,
+                      '--md-cols': rowColumn.span_md,
+                      '--lg-cols': rowColumn.span_lg,
+                    }"
+                  >
+                    <span
+                      class="block text-[0.5rem] md:text-[0.6rem] text-dashboard-text uppercase mb-1 md:mb-2"
+                      v-if="rowColumn.showHeading"
+                    >
+                      {{ rowColumn.name }}
+                    </span>
 
-                <div
-                  class="text-dashboard-heading text-[0.7rem] md:text-sm text-right md:text-left flex flex-col items-end md:items-start"
-                >
-                  <slot :name="`col_${rowColumn.id}`" :rowData="row">
-                    {{ row[rowColumn.id] }}
-                  </slot>
-                </div>
-              </li>
+                    <div
+                      class="text-dashboard-heading text-[0.7rem] md:text-sm text-left flex flex-col items-start"
+                    >
+                      <slot :name="`col_${rowColumn.id}`" :rowData="row">
+                        {{ row[rowColumn.id] }}
+                      </slot>
+                    </div>
+                  </li>
+                </template>
+              </ul>
             </nuxt-link>
-          </ul>
+          </div>
         </div>
         <!-- table body end-->
 

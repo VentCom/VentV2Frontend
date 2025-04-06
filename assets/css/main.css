@@ -192,6 +192,7 @@
 
     /* Dashboard colors */
     --color-dashboard-bg: var(--color-white);
+    --color-dashboard-bg-dark: #F2F4F7;
     --color-dashboard-card-border: #E6E9EF;
     --color-dashboard-card-divider: #F2F4F7;
     --color-dashboard-header-border: #ECEEF3;

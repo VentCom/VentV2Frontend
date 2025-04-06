@@ -5,10 +5,14 @@ const props = withDefaults(
   defineProps<{
     tabList: TabsData[];
     defaultTabId: string;
+    showIcon?: boolean;
+    showCount?: boolean;
   }>(),
   {
     tabList: () => [],
     defaultTabId: "",
+    showCount: false,
+    showIcon: true,
   }
 );
 
@@ -31,7 +35,7 @@ watch(activeTabIndex, (newValue, prevValue) => {
   <div class="max-w-[90vw] md:max-w-[1600px]">
     <!-- tab heading -->
     <ul
-      class="inline-flex items-center w-full gap-5 border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x"
+      class="inline-flex items-center w-full gap-5 border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x sticky top-1 bg-dashboard-bg z-10"
     >
       <template v-for="(tab, index) in props.tabList" :key="index">
         <li class="inline-block max-w-40 min-w-9 shrink-0">
@@ -42,11 +46,17 @@ watch(activeTabIndex, (newValue, prevValue) => {
             }"
             @click="selectTab(tab.id, index)"
           >
-            <i class="icon">
+            <i v-if="props.showIcon" class="icon">
               <Icon :name="tab.icon" size="1.2rem"></Icon>
             </i>
             <span class="text">
               {{ tab.name }}
+            </span>
+
+            <span
+              class="border border-dashboard-card-divider rounded-lg p-2 py-1 text-xs inline-block mb-1"
+            >
+              {{ tab.counts }}
             </span>
           </button>
         </li>
@@ -83,7 +93,7 @@ watch(activeTabIndex, (newValue, prevValue) => {
 }
 
 .tab-btn {
-  @apply flex items-center gap-2 border-b-2 border-transparent pb-2 text-dashboard-text cursor-pointer;
+  @apply flex items-center gap-2 border-b-2 border-transparent pb-1 text-dashboard-text cursor-pointer;
   @apply transition-colors ease-in-out duration-300;
 }
 
