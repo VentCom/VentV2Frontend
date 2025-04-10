@@ -1,53 +1,36 @@
 <script setup lang="ts">
-import { AppAlertWarning, TransactionSummaryMoreActions } from "#components";
+import {
+  AppAlertWarning,
+  AppCard,
+  TransactionSummaryMoreActions,
+} from "#components";
 </script>
 
 <template>
   <div class="w-full flex flex-col gap-4">
     <AppAlertWarning></AppAlertWarning>
 
-    <!-- body -->
-    <div
-      class="border border-dashboard-card-border p-6 py-10 md:p-10 w-full flex flex-col gap-4"
-    >
-      <div class="flex flex-col md:flex-row gap-4 gap-y-10">
-        <div class="w-full flex flex-col gap-4">
-          <div>
-            <ul class="flex items-center gap-2">
-              <li
-                class="font-semibold text-dashboard-heading text-3xl md:text-4xl"
-              >
-                $2,300
-              </li>
-              <li>
-                <h3
-                  class="text-[0.6rem] uppercase tracking-widest text-dropdown-heading"
-                >
-                  Worth of
-                </h3>
-                <p
-                  class="text-dashboard-heading font-bold text-sm uppercase md:text-xl -mt-1.5"
-                >
-                  USDT
-                </p>
-              </li>
-            </ul>
-
-            <p
-              class="text-[0.6rem] uppercase tracking-widest text-dropdown-heading mt-1"
-            >
-              valued at 0.00000320usdt
-            </p>
-          </div>
-
-          <div class="mt-auto flex justify-end md:justify-start">
-            <AppButton>Update</AppButton>
-          </div>
+    <AppCard>
+      <template #header-left>
+        <div class="flex items-center gap-4">
+          <h3
+            class="font-semibold text-dashboard-heading place-items-center pl-2"
+          >
+            Transaction Details
+          </h3>
         </div>
+      </template>
 
-        <div
-          class="w-full md:w-[992px] shrink-0 grid grid-cols-2 md:grid-cols-4 gap-5 gap-y-8"
+      <template #header-right>
+        <button
+          class="text-brand-color-default bg-dashboard-bg text-[0.75rem] px-4 py-[11px] rounded-xl border border-brand-color-default hover:bg-brand-color-default hover:text-dashboard-bg"
         >
+          Update
+        </button>
+      </template>
+
+      <template #body>
+        <div class="w-full grid grid-cols-2 md:grid-cols-4 gap-5 gap-y-8">
           <!-- transact hash -->
           <div>
             <p
@@ -169,12 +152,7 @@ import { AppAlertWarning, TransactionSummaryMoreActions } from "#components";
           </div>
           <!-- Status end-->
         </div>
-      </div>
-    </div>
-    <!-- body end-->
-
-    <!-- more actions -->
-    <TransactionDetailsMoreActions></TransactionDetailsMoreActions>
-    <!-- more actions end -->
+      </template>
+    </AppCard>
   </div>
 </template>

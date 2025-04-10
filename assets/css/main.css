@@ -193,6 +193,7 @@
     /* Dashboard colors */
     --color-dashboard-bg: var(--color-white);
     --color-dashboard-bg-dark: #F2F4F7;
+    --color-dashboard-bg-darker: #FAFAFA;
     --color-dashboard-card-border: #E6E9EF;
     --color-dashboard-card-divider: #F2F4F7;
     --color-dashboard-header-border: #ECEEF3;
@@ -224,5 +225,10 @@
     --color-table-heading-bg: #F8F9FC;
 
     /*Chat box*/
-    --color-chat-bg: var(--color-gray-010);
+    --color-chat-bg: var(--color-gray-011);
+    --color-chat-border: var(--color-gray-010);
+
+    /*Modal*/
+    --color-modal-heading: #000000;
+    --color-modal-subheading: #3B404A;
 }

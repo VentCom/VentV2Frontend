@@ -1,8 +1,8 @@
 <template>
   <div
-    class="p-6 bg-yellow-013 gap-2 flex items-center overflow-hidden relative"
+    class="p-6 py-4 bg-yellow-013 gap-2 flex items-center overflow-hidden relative"
   >
-    <i class="shrink-0">
+    <i class="shrink-0 w-5 h-5">
       <icon name="vent:info-circle" size="1.4rem"></icon>
     </i>
     <p class="text-black text-sm md:text-base relative z-1">

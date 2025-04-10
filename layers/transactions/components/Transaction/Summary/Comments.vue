@@ -1,65 +1,34 @@
 <script setup lang="ts">
-import { AppButton, TransactionCommentsCard } from "#components";
+import { AppButton, AppCard, TransactionCommentsCard } from "#components";
 </script>
 
 <template>
-  <div
-    class="border border-dashboard-card-border p-6 w-full flex flex-col gap-4"
-  >
-    <!-- heading -->
-    <h3 class="font-semibold text-dashboard-heading text-xl mb-1">Comments</h3>
-    <!-- heading end-->
-
-    <!-- Chat content -->
-    <div class="border border-dashboard-card-border p-6 md:p-8">
-      <TransactionCommentsCard></TransactionCommentsCard>
-    </div>
-    <!-- Chat content end-->
-
-    <!-- Chat input -->
-    <div class="p-6 relative group">
-      <textarea
-        name=""
-        class="w-full border-0 outline-0 relative z-2 peer text-dashboard-text placeholder:text-dashboard-text-lighter"
-        rows="3"
-        placeholder="Type something.."
-        id=""
-      ></textarea>
-
-      <div
-        class="absolute top-0 left-0 w-full h-full border border-dashboard-card-border group-hover:border-brand-color-default peer-focus:border-brand-color-default"
-      ></div>
-
-      <div class="flex items-end justify-between">
-        <ul class="flex items-center shrink-0 gap-3">
-          <li>
-            <button
-              class="cursor-pointer text-dashboard-text hover:text-brand-color-default"
-            >
-              <Icon name="vent:smiley" size="1.5rem"></Icon>
-            </button>
-          </li>
-          <li>
-            <button
-              class="cursor-pointer text-dashboard-text hover:text-brand-color-default"
-            >
-              <Icon name="vent:image" size="1.5rem"></Icon>
-            </button>
-          </li>
-          <li>
-            <button
-              class="cursor-pointer text-dashboard-text hover:text-brand-color-default"
-            >
-              <Icon name="vent:microphone" size="1.5rem"></Icon>
-            </button>
-          </li>
-        </ul>
-
-        <AppButton>
-          <Icon name="vent:send" size="1.8rem"></Icon>
-        </AppButton>
+  <AppCard>
+    <template #header-left>
+      <div class="flex items-center gap-2">
+        <h3
+          class="font-semibold text-dashboard-heading place-items-center pl-2"
+        >
+          Comments
+        </h3>
+        <span
+          class="border border-dashboard-card-divider rounded-lg p-2 py-1 text-xs inline-block mb-1"
+        >
+          0
+        </span>
       </div>
-    </div>
-    <!-- Chat input end-->
-  </div>
+    </template>
+
+    <template #header-right>
+      <button
+        class="hover:text-white bg-dashboard-bg text-[0.75rem] px-4 py-[11px] rounded-xl border border-dashboard-card-border hover:bg-brand-color-default text-dashboard-heading"
+      >
+        See all
+      </button>
+    </template>
+
+    <template #body>
+      <TransactionCommentsCard isLast></TransactionCommentsCard>
+    </template>
+  </AppCard>
 </template>

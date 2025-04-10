@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border border-dashboard-card-border p-6 md:px-10 flex flex-col gap-11 w-full"
+    class="border border-dashboard-card-border p-6 md:px-10 flex flex-col gap-11 w-full rounded-xl"
   >
     <!-- summary -->
     <div
@@ -25,6 +25,15 @@
             >
               Johnny Doe Young
             </h1>
+
+            <!-- country badge -->
+            <img
+              src="/img/ng-flag.svg"
+              class="w-4 h-4 md:w-7 md:h-7 rounded-full"
+              alt=""
+            />
+            <!-- country badge end -->
+
             <span class="text-xs md:text-sm">
               <AppPills>Active</AppPills>
             </span>
@@ -36,12 +45,13 @@
         <!-- user data end-->
 
         <!-- bvn verification -->
-        <i class="shrink-0 hidden md:block ml-auto">
-          <Icon name="vent:bvn-stage-badge" size="5rem"></Icon>
-        </i>
-        <i class="shrink-0 md:hidden block ml-auto">
-          <Icon name="vent:bvn-stage-badge" size="2.5rem"></Icon>
-        </i>
+        <figure class="block w-[47px] md:w-[63.42px]">
+          <img
+            class="w-full"
+            src="/img/verify_badge__3_stars.svg"
+            alt="verify badge"
+          />
+        </figure>
         <!-- bvn verification end-->
       </div>
     </div>

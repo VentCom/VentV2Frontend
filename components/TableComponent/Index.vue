@@ -76,7 +76,7 @@ const generateGridClass = (span: number) => {
       <template v-if="!isLoading && bodyData.length > 0">
         <!-- table body -->
         <div
-          class="flex flex-col gap-2.5 p-2.5 bg-[#FAFAFA] border border-dashboard-card-border rounded-lg"
+          class="flex flex-col gap-2.5 p-2.5 bg-dashboard-bg-darker border border-dashboard-card-border rounded-lg"
         >
           <div
             v-for="(row, index) in bodyData"

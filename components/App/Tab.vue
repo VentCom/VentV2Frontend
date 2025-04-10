@@ -7,12 +7,16 @@ const props = withDefaults(
     defaultTabId: string;
     showIcon?: boolean;
     showCount?: boolean;
+    hasSidebar?: boolean;
+    headerIsSticky?: boolean;
   }>(),
   {
     tabList: () => [],
     defaultTabId: "",
     showCount: false,
     showIcon: true,
+    hasSidebar: false,
+    headerIsSticky: false,
   }
 );
 
@@ -35,7 +39,8 @@ watch(activeTabIndex, (newValue, prevValue) => {
   <div class="max-w-[90vw] md:max-w-[1600px]">
     <!-- tab heading -->
     <ul
-      class="inline-flex items-center w-full gap-5 border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x sticky top-1 bg-dashboard-bg z-10"
+      class="inline-flex items-center w-full gap-5 border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x top-1 bg-dashboard-bg z-10"
+      :class="{ sticky: props.headerIsSticky }"
     >
       <template v-for="(tab, index) in props.tabList" :key="index">
         <li class="inline-block max-w-40 min-w-9 shrink-0">
@@ -54,6 +59,7 @@ watch(activeTabIndex, (newValue, prevValue) => {
             </span>
 
             <span
+              v-if="props.showCount"
               class="border border-dashboard-card-divider rounded-lg p-2 py-1 text-xs inline-block mb-1"
             >
               {{ tab.counts }}
@@ -66,10 +72,21 @@ watch(activeTabIndex, (newValue, prevValue) => {
     <!-- tab heading end-->
 
     <!-- tab body -->
-    <div class="w-full mt-4 overflow-x-hidden">
-      <Transition :name="transitionName" mode="out-in">
-        <slot :name="activeTabId"></slot>
-      </Transition>
+    <div class="w-full mt-4 overflow-x-hidden flex flex-col md:flex-row gap-6">
+      <div class="w-full" :class="{ 'md:w-[83%]': props.hasSidebar }">
+        <Transition :name="transitionName" mode="out-in">
+          <slot :name="activeTabId"></slot>
+        </Transition>
+      </div>
+
+      <!-- sidebar -->
+      <div
+        v-if="props.hasSidebar"
+        class="w-full md:w-[15%] shrink-0 bg-dashboard-bg relative z-[3]"
+      >
+        <slot name="sidebar"></slot>
+      </div>
+      <!-- sidebar end-->
     </div>
     <!-- tab body end -->
   </div>

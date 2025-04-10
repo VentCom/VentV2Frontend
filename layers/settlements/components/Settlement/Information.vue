@@ -3,14 +3,17 @@ import { TransactionSettlementsCard } from "#components";
 </script>
 
 <template>
-  <div class="border border-dashboard-card-border p-6 grid grid-cols-1 gap-6">
-    <p
-      class="inline-block w-full md:w-auto font-semibold text-base md:text-xl capitalize"
-    >
-      Settlement Details
-    </p>
+  <AppCard :subCardCount="3">
+    <template #header-left>
+      <p
+        class="inline-block w-full md:w-auto font-semibold text-base md:text-xl capitalize py-2 pl-2"
+      >
+        Settlements
+      </p>
+    </template>
 
-    <TransactionSettlementsCard></TransactionSettlementsCard>
-    <TransactionSettlementsCard></TransactionSettlementsCard>
-  </div>
+    <template #body="{ index }">
+      <SettlementCard :key="index"></SettlementCard>
+    </template>
+  </AppCard>
 </template>

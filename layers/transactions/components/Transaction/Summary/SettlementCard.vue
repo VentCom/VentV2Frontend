@@ -8,7 +8,7 @@ const toggleCollapsable = () => {
 
 <template>
   <ul
-    class="border border-dashboard-card-border p-6 md:p-8 collapsable"
+    class="collapsable"
     :class="{
       show: !collapseInfo,
     }"
@@ -18,11 +18,7 @@ const toggleCollapsable = () => {
         <h4
           class="text-[0.6rem] uppercase tracking-widest text-dropdown-heading flex items-center gap-2"
         >
-          <span>Payout amount</span>
-          <ul class="flex items-center gap-2">
-            <li class="w-1.5 aspect-square rounded-full bg-green-005"></li>
-            <li class="w-1.5 aspect-square rounded-full bg-green-005"></li>
-          </ul>
+          <span>Payout</span>
         </h4>
 
         <p class="font-bold text-xl">NGN1,000,320.62</p>
@@ -35,7 +31,7 @@ const toggleCollapsable = () => {
             Glyde
           </span>
 
-          <span v-if="collapseInfo" class="text-sm">
+          <span v-if="collapseInfo" class="text-xs">
             <AppPills color="green">Completed</AppPills>
           </span>
         </div>
@@ -43,21 +39,20 @@ const toggleCollapsable = () => {
 
       <button
         @click="toggleCollapsable"
-        class="shrink-0 text-dashboard-heading text-[0.813rem] border cursor-pointer border-dashboard-card-border rounded-full w-7 h-7 md:w-auto md:h-auto flex md:inline-block items-center justify-center py-2 px-2 md:py-2 md:px-4.5 hover:shadow-2xl hover:shadow-brand-color-010 hover:border-brand-color-default transition-all duration-300 ease-in-out"
+        class="shrink-0 text-dashboard-heading border cursor-pointer bg-dashboard-bg-darker rounded-xl w-10 h-10 flex items-center justify-center py-2 px-2 hover:shadow-2xl hover:shadow-brand-color-010 hover:border-brand-color-default transition-all duration-300 ease-in-out"
+        :class="{
+          ' border-brand-color-default shadow-2xl shadow-brand-color-010':
+            !collapseInfo,
+          'border-dashboard-card-border': collapseInfo,
+        }"
       >
-        <span class="hidden md:inline">{{
-          collapseInfo ? `Expand` : `Collapse`
-        }}</span>
+        <i class="block w-6 h-6" v-if="collapseInfo">
+          <icon name="vent:eye-closed" size="1.5rem"></icon>
+        </i>
 
-        <span
-          class="md:hidden inline-block transition-all ease-in duration-300 origin-center"
-          :class="{
-            'rotate-180': !collapseInfo,
-            'mt-1': collapseInfo,
-          }"
-        >
-          <Icon name="vent:arrow-down" size="1.2rem"></Icon>
-        </span>
+        <i class="block w-6 h-6" v-else>
+          <icon name="vent:eye-opened" size="1.5rem"></icon>
+        </i>
       </button>
     </li>
 

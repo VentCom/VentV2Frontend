@@ -23,21 +23,21 @@ const tabs: TabsData[] = [
     id: "settlement",
   },
   {
-    name: "Comments",
-    icon: "vent:sms",
-    id: "comments",
+    name: "Account History",
+    icon: "vent:story",
+    id: "account-history",
   },
   {
-    name: "Log Activities",
-    icon: "vent:story",
-    id: "log-activities",
+    name: "Restrictions",
+    icon: "vent:info-circle-outlined",
+    id: "restrictions",
   },
 ];
 </script>
 <template>
   <div class="max-w-[90vw] md:max-w-[1600px]">
     <!-- tab -->
-    <AppTab :defaultTabId="'summary'" :tabList="tabs">
+    <AppTab :defaultTabId="'summary'" :tabList="tabs" hasSidebar>
       <template #summary>
         <div>
           <TransactionSummary></TransactionSummary>
@@ -56,15 +56,21 @@ const tabs: TabsData[] = [
         </div>
       </template>
 
-      <template #comments>
+      <template #account-history>
         <div>
-          <TransactionComments></TransactionComments>
+          <TransactionAccountHistory></TransactionAccountHistory>
         </div>
       </template>
 
-      <template #log-activities>
+      <template #restrictions>
         <div>
-          <TransactionLogActivities></TransactionLogActivities>
+          <TransactionAccountHistory></TransactionAccountHistory>
+        </div>
+      </template>
+
+      <template #sidebar>
+        <div>
+          <TransactionSummaryMoreActions></TransactionSummaryMoreActions>
         </div>
       </template>
     </AppTab>

@@ -33,24 +33,24 @@ const props = withDefaults(
       <ul
         class="grow flex flex-col w-full gap-2 items-start"
         :class="{
-          'pb-10': !props.isLast,
+          'pb-5': !props.isLast,
         }"
       >
         <li
-          class="p-4 bg-chat-bg rounded-xl rounded-tl-none text-dashboard-heading text-xs md:text-base inline-block max-w-2xl"
+          class="p-4 bg-chat-bg rounded-xl rounded-tl-none text-dashboard-heading text-xs md:text-base inline-block max-w-2xl border border-chat-border"
         >
           This is a sample text representing the comment entered by an admin
         </li>
         <li
           class="flex items-center gap-2 text-dashboard-text text-[0.55rem] md:text-[0.813rem] flex-wrap"
         >
-          <span class="whitespace-nowrap text-dashboard-heading"
+          <span class="whitespace-nowrap text-dashboard-heading font-medium"
             >Gift Dappa</span
           >
           <span
-            class="block w-2 aspect-square rounded-full bg-dashboard-text-light shrink-0"
+            class="block w-1.5 aspect-square rounded-full bg-dashboard-text-lighter shrink-0"
           ></span>
-          <span class="whitespace-nowrap"> March 22, 2025 02:23AM</span>
+          <span class="whitespace-nowrap"> 2 hours ago</span>
         </li>
       </ul>
       <!-- comment details end-->
