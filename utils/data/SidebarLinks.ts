@@ -90,6 +90,12 @@ export const LinkList: LinkData[][] = [
       type: LinkType.HEADING,
     },
     {
+      name: "Configurations",
+      type: LinkType.LINK,
+      icon: "vent:config",
+      route: "/configurations",
+    },
+    {
       name: "More",
       type: LinkType.LINK,
       icon: "vent:ai-scan",
