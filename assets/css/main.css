@@ -162,6 +162,9 @@
     --color-green-014: #E5FFEB;
     --color-green-005: #009923;
 
+    /* Team color */
+    --color-team: #EDF3FF;
+
     /* Yellow colors */
     --color-yellow-*: initial;
     --color-yellow-013: #FFFEE5;

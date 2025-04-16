@@ -6,6 +6,8 @@ const props = withDefaults(
     disabled?: boolean;
     size?: "sm" | "md" | "lg";
     outlined?: boolean;
+    color?: "primary" | "secondary" | "neutral";
+    rounded?: boolean;
   }>(),
   {
     block: false,
@@ -13,6 +15,8 @@ const props = withDefaults(
     disabled: false,
     size: "md",
     outlined: false,
+    color: "primary",
+    rounded: false,
   }
 );
 
@@ -23,12 +27,15 @@ const getProps = computed(() => props);
     class="btn"
     :class="{
       'w-full': getProps.block,
+      'rounded-lg': getProps.rounded,
       'brightness-75 cursor-not-allowed': getProps.disabled,
       'btn-sm': getProps.size === 'sm',
       'btn-md': getProps.size === 'md',
       'btn-lg': getProps.size === 'lg',
-      'btn-primary': !getProps.outlined,
-      'btn-primary-outlined': getProps.outlined,
+      'btn-primary': !getProps.outlined && getProps.color === 'primary',
+      'btn-primary-outlined': getProps.outlined && getProps.color === 'primary',
+      'btn-neutral': !getProps.outlined && getProps.color === 'neutral',
+      'btn-nuetral-outlined': getProps.outlined && getProps.color === 'neutral',
     }"
     :disabled="getProps.disabled"
   >
@@ -59,7 +66,11 @@ const getProps = computed(() => props);
   @apply bg-brand-color-default hover:bg-brand-color-005 text-white;
 }
 
+.btn-neutral {
+  @apply bg-[#ECEEF3]  text-dashboard-heading;
+}
+
 .btn-primary-outlined {
-  @apply bg-transparent border border-brand-color-default text-brand-color-default hover:border-brand-color-005 hover:text-brand-color-005;
+  @apply bg-dashboard-bg border border-brand-color-default text-brand-color-default hover:border-brand-color-005 hover:text-brand-color-005;
 }
 </style>
