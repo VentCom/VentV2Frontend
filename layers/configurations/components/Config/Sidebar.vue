@@ -15,6 +15,10 @@ const links = ref([
     route: "/configurations/otp",
   },
   {
+    name: "Currencies and Payments",
+    route: "/configurations/currencies-payments",
+  },
+  {
     name: "Access Groups",
     route: "/configurations/access-groups",
   },

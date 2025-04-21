@@ -6,8 +6,8 @@ definePageMeta({
 <template>
   <div>
     <!-- heading -->
-    <div class="w-full">
-      <h2 class="font-bold text-dashboard-heading mb-1 text-base md:text-xl">
+    <div class="w-full mb-8">
+      <h2 class="font-bold text-dashboard-heading mb-1 text-xl md:text-2xl">
         One-Time Passwords (OTP)
       </h2>
       <p class="text-[0.813rem] text-dashboard-text">
@@ -15,5 +15,11 @@ definePageMeta({
       </p>
     </div>
     <!-- heading end-->
+
+    <div class="grid grid-cols-1 gap-8">
+      <ConfigOtpExpiration></ConfigOtpExpiration>
+
+      <ConfigOtpMessagingChannels></ConfigOtpMessagingChannels>
+    </div>
   </div>
 </template>

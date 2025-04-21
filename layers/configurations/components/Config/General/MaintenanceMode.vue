@@ -13,25 +13,7 @@
       </div>
 
       <div class="w-full md:w-1/2 flex gap-3">
-        <label
-          role="checkbox"
-          class="block w-[33px] p-1.5 rounded-full overflow-hidden cursor-pointer relative"
-        >
-          <input
-            type="checkbox"
-            name=""
-            id="maintenance_mode"
-            class="sr-only peer"
-          />
-          <span
-            class="block absolute top-0 left-0 w-full h-full transition-all duration-300 ease-in-out bg-dashboard-header-border peer-checked:bg-brand-color-default"
-          >
-          </span>
-          <span
-            class="rounded-full relative z-1 bg-white w-[14px] aspect-square block transition-all duration-300 ease-in-out peer-checked:translate-x-[0] translate-x-[50%]"
-          >
-          </span>
-        </label>
+        <AppSwitch id="maintenance_mode"></AppSwitch>
         <label class="text-dashboard-heading text-base" for="maintenance_mode"
           >Enable maintenance mode</label
         >

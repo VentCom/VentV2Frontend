@@ -15,7 +15,7 @@ definePageMeta({
   <div>
     <!-- heading -->
     <div class="w-full mb-8">
-      <h2 class="font-bold text-dashboard-heading mb-1 text-base md:text-2xl">
+      <h2 class="font-bold text-dashboard-heading mb-1 text-xl md:text-2xl">
         General
       </h2>
       <p class="text-[0.813rem] text-dashboard-text">

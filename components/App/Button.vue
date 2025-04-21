@@ -35,7 +35,7 @@ const getProps = computed(() => props);
       'btn-primary': !getProps.outlined && getProps.color === 'primary',
       'btn-primary-outlined': getProps.outlined && getProps.color === 'primary',
       'btn-neutral': !getProps.outlined && getProps.color === 'neutral',
-      'btn-nuetral-outlined': getProps.outlined && getProps.color === 'neutral',
+      'btn-neutral-outlined': getProps.outlined && getProps.color === 'neutral',
     }"
     :disabled="getProps.disabled"
   >
@@ -72,5 +72,9 @@ const getProps = computed(() => props);
 
 .btn-primary-outlined {
   @apply bg-dashboard-bg border border-brand-color-default text-brand-color-default hover:border-brand-color-005 hover:text-brand-color-005;
+}
+
+.btn-neutral-outlined {
+  @apply bg-dashboard-bg border border-dashboard-card-border text-dashboard-heading hover:bg-dashboard-bg-dark;
 }
 </style>
