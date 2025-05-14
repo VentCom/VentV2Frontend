@@ -28,7 +28,7 @@ const data = transactionListBody;
     <template #col_reference="props">
       <p class="flex items-center gap-1">
         <span>{{ props.rowData.reference }}</span>
-        <i class="inline-block mt-1">
+        <i class="inline-block mt-1 text-brand-color-default">
           <Icon name="vent:external-link" size="1.2rem"></Icon>
         </i>
       </p>

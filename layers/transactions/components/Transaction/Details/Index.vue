@@ -40,7 +40,7 @@ import {
             </p>
             <p class="flex items-center gap-1">
               <span>4a32***552b</span>
-              <i class="inline-block mt-1">
+              <i class="inline-block mt-1 text-brand-color-default">
                 <Icon name="vent:external-link" size="1.2rem"></Icon>
               </i>
             </p>

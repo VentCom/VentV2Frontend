@@ -1,8 +1,13 @@
 <script setup lang="ts">
 const isSelected = defineModel<boolean>("isSelected", { default: false });
-const props = withDefaults(defineProps<{ id?: string }>(), {
-  id: "",
-});
+const props = withDefaults(
+  defineProps<{ id?: string; name?: string; value?: string }>(),
+  {
+    id: "",
+    name: "",
+    value: "",
+  }
+);
 </script>
 <template>
   <label
@@ -14,7 +19,8 @@ const props = withDefaults(defineProps<{ id?: string }>(), {
     <input
       type="checkbox"
       v-model="isSelected"
-      name=""
+      :name="props.name"
+      :value="props.value"
       :id="props.id"
       class="sr-only peer"
     />

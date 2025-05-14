@@ -45,7 +45,7 @@ defineExpose({
     <transition name="slideUp">
       <div
         v-if="dropDownIsOpen"
-        class="absolute inline-block top-[120%] overflow-hidden z-[140] border border-dropdown-border rounded-lg bg-dropdown-outline shadow-lg shadow-slate-300/40 p-0.5"
+        class="absolute inline-block top-[120%] overflow-hidden z-[240] border border-dropdown-border rounded-lg bg-dropdown-outline shadow-lg shadow-slate-300/40 p-0.5"
         :class="{
           'left-0': position === 'left',
           'right-0': position === 'right',
