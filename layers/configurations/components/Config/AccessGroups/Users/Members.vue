@@ -1,55 +1,16 @@
-<script lang="ts" setup>
-import {
-  AppModal,
-  LazyConfigAccessGroupsRolesConfirmRevokePermission,
-} from "#components";
-
-const revokePermissionModal = ref({
-  showDialogBox: () => {},
-  hideDialogBox: () => {},
-});
-
-const deleteRoleModal = ref({
-  showDialogBox: () => {},
-  hideDialogBox: () => {},
-});
-
-const editRoleModal = ref({
-  showDialogBox: () => {},
-  hideDialogBox: () => {},
-});
-
-const revokePermission = () => {
-  revokePermissionModal.value.showDialogBox();
-};
-const deleteRole = () => {
-  deleteRoleModal.value.showDialogBox();
-};
-
-const editRole = () => {
-  editRoleModal.value.showDialogBox();
-};
+<script setup lang="ts">
+import { AppPills } from "#components";
 </script>
+
 <template>
-  <Teleport to="body">
-    <AppModal ref="revokePermissionModal">
-      <LazyConfigAccessGroupsRolesConfirmRevokePermission />
-    </AppModal>
-    <AppModal ref="deleteRoleModal">
-      <ConfigAccessGroupsRolesConfirmDeleteRole />
-    </AppModal>
-
-    <ConfigAccessGroupsRolesEdit ref="editRoleModal" />
-  </Teleport>
-
   <table class="w-full text-xs md:text-sm">
     <thead>
       <tr class="text-dashboard-text font-bold bg-[#F8F9FC]">
         <th class="text-left px-4 py-4">Name</th>
-        <th class="text-center px-4 py-4">Permissions</th>
-        <th class="text-left px-4 py-4">Users</th>
-        <th class="text-left px-4 py-4">Date Created</th>
-        <th class="text-left px-4 py-4">Last Updated</th>
+        <th class="text-center px-4 py-4">Role</th>
+        <th class="text-left px-4 py-4">Email</th>
+        <th class="text-center px-4 py-4">Status</th>
+        <th class="text-left px-4 py-4">Last Seen</th>
         <th class="flex justify-end px-4 py-4">More</th>
       </tr>
 
@@ -64,64 +25,37 @@ const editRole = () => {
             class="border border-r-0 border-dashboard-card-border rounded-l-xl h-full p-4"
           >
             <ul class="flex items-center gap-1 text-dashboard-heading">
-              <li class="w-7 h-7 block">
-                <img src="/img/role-icon.svg" class="w-full" alt="role" />
+              <li
+                class="w-7 h-7 uppercase font-semibold bg-brand-color-012 text-brand-color-001 text-[9px] flex items-center justify-center rounded-full"
+              >
+                SN
               </li>
-              <li class="text-sm md:text-base">
-                <span class="whitespace-nowrap">Super Admin</span>
+              <li class="text-sm md:text-base text-dashboard-heading">
+                <span class="whitespace-nowrap">Nkeze Sylvester</span>
               </li>
             </ul>
           </td>
           <td
             class="p-4 border-y border-dashboard-card-border text-center text-sm"
           >
-            <AppPills color="green">12</AppPills>
+            Compliance
           </td>
           <td class="p-4 border-y border-dashboard-card-border">
-            <ul class="inline-flex w-auto items-center gap-1">
-              <li
-                class="w-7 h-7 rounded-full border-2 border-[#FFFFFF] first:ml-0 -ml-5 block overflow-hidden"
-              >
-                <span
-                  class="flex items-center justify-center w-full h-full bg-[#CCEEFF] text-[#001119] text-[9px]"
-                  >PA</span
-                >
-              </li>
-              <li
-                class="w-7 h-7 rounded-full border-2 border-[#FFFFFF] first:ml-0 -ml-5 block overflow-hidden"
-              >
-                <span
-                  class="flex items-center justify-center w-full h-full bg-[#CCCCFF] text-[#001119] text-[9px]"
-                  >NS</span
-                >
-              </li>
-              <li
-                class="w-7 h-7 rounded-full border-2 border-[#FFFFFF] first:ml-0 -ml-5 block overflow-hidden"
-              >
-                <span
-                  class="flex items-center justify-center w-full h-full bg-[#FFDFCC] text-[#001119] text-[9px]"
-                  >DS</span
-                >
-              </li>
-              <li
-                class="w-7 h-7 rounded-full border-2 border-[#FFFFFF] first:ml-0 -ml-5 block overflow-hidden"
-              >
-                <span
-                  class="flex items-center justify-center w-full h-full bg-[#001119] text-white text-[9px]"
-                  >12+</span
-                >
-              </li>
-            </ul>
+            <span class="whitespace-nowrap text-dashboard-text"
+              >ex***mple@email.com</span
+            >
           </td>
           <td
             class="p-4 border-y border-dashboard-card-border text-dashboard-text whitespace-nowrap"
           >
-            May 8, 2025 5:13PM
+            <div class="flex justify-center w-full text-sm">
+              <AppPills color="green">Active</AppPills>
+            </div>
           </td>
           <td
             class="p-4 border-y border-dashboard-card-border whitespace-nowrap"
           >
-            May 8, 2025 5:13PM
+            1 hour ago
           </td>
           <td
             class="p-4 border border-l-0 border-dashboard-card-border rounded-r-xl h-full"
@@ -132,7 +66,7 @@ const editRole = () => {
                   <button
                     class="text-dashboard-heading hover:text-brand-color-default cursor-pointer"
                   >
-                    <icon name="vent-more" size="1.4rem"></icon>
+                    <icon name="vent:more" size="1.4rem"></icon>
                   </button>
                 </template>
 
@@ -142,7 +76,6 @@ const editRole = () => {
                   >
                     <li class="w-full">
                       <button
-                        @click="editRole"
                         class="border-b w-full border-dashboard-card-divider px-5 py-3 flex items-center gap-2 text-dashboard-heading hover:text-brand-color-default hover:border-brand-color-default"
                       >
                         <icon name="vent:edit-hollow" size="1.5rem"></icon>
@@ -151,7 +84,6 @@ const editRole = () => {
                     </li>
                     <li class="w-full">
                       <button
-                        @click="deleteRole"
                         class="border-b w-full border-dashboard-card-divider text-[#FF5E00] px-5 py-3 flex items-center gap-2 cursor-pointer"
                       >
                         <icon name="vent:trash" size="1.5rem"></icon>
@@ -161,7 +93,6 @@ const editRole = () => {
 
                     <li class="w-full">
                       <button
-                        @click="revokePermission"
                         class="w-full border-dashboard-card-divider px-5 py-3 flex items-center gap-2 text-[#FF5E00] cursor-pointer"
                       >
                         <icon

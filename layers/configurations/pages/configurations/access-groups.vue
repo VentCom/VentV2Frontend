@@ -100,14 +100,18 @@ const tabs: TabsData[] = [
     <div class="grid grid-cols-1 gap-8">
       <AppTab :defaultTabId="'roles'" showCount :tabList="tabs">
         <template #roles>
-          <ConfigAccessGroupsRolesRoleLIst></ConfigAccessGroupsRolesRoleLIst>
+          <div class="overflow-x-auto overflow-y-visible">
+            <ConfigAccessGroupsRolesRoleLIst></ConfigAccessGroupsRolesRoleLIst>
+          </div>
         </template>
 
         <template #permissions>
           <ConfigAccessGroupsPermissions></ConfigAccessGroupsPermissions>
         </template>
 
-        <template #users> </template>
+        <template #users>
+          <ConfigAccessGroupsUsers></ConfigAccessGroupsUsers>
+        </template>
       </AppTab>
     </div>
   </div>

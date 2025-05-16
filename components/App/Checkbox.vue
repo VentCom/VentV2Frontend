@@ -1,5 +1,7 @@
 <script setup lang="ts">
-const isSelected = defineModel<boolean>("isSelected", { default: false });
+const isSelected = defineModel<boolean | string[]>("isSelected", {
+  default: false,
+});
 const props = withDefaults(
   defineProps<{ id?: string; name?: string; value?: string }>(),
   {

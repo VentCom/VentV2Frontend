@@ -17,7 +17,19 @@ const props = withDefaults(
   }
 );
 
-const selectedPermissions = ref([]);
+const selectAllId = (Math.random() * 1000).toString();
+
+const selectAllStatus = ref(false);
+
+const selectedPermissions = ref<string[]>([]);
+
+watch(selectAllStatus, (newValue) => {
+  if (newValue === true) {
+    selectedPermissions.value = props.permissions.map((item) => item.title);
+  } else {
+    selectedPermissions.value = [];
+  }
+});
 </script>
 <template>
   <div class="border border-dashboard-card-border">
@@ -35,6 +47,16 @@ const selectedPermissions = ref([]);
 
       <div class="w-full md:w-1/2 grid grid-cols-1 gap-4">
         <ul class="grid grid-cols-1 w-full gap-5">
+          <li class="flex gap-3">
+            <AppCheckbox
+              name="permissions_group"
+              v-model:isSelected="selectAllStatus"
+              :id="selectAllId"
+            ></AppCheckbox>
+            <label :for="selectAllId" class="text-dashboard-text text-sm">
+              Select all</label
+            >
+          </li>
           <li
             v-for="(permission, index) in props.permissions"
             :key="index"
@@ -42,7 +64,7 @@ const selectedPermissions = ref([]);
           >
             <AppCheckbox
               name="permissions_group"
-              v-model="selectedPermissions"
+              v-model:isSelected="selectedPermissions"
               :value="permission.title"
               :id="permission.id"
             ></AppCheckbox>

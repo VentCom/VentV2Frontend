@@ -8,6 +8,7 @@ const props = withDefaults(
     outlined?: boolean;
     color?: "primary" | "secondary" | "neutral";
     rounded?: boolean;
+    fullRounded?: boolean;
   }>(),
   {
     block: false,
@@ -17,6 +18,7 @@ const props = withDefaults(
     outlined: false,
     color: "primary",
     rounded: false,
+    fullRounded: false,
   }
 );
 
@@ -27,7 +29,8 @@ const getProps = computed(() => props);
     class="btn"
     :class="{
       'w-full': getProps.block,
-      'rounded-lg': getProps.rounded,
+      'rounded-lg': getProps.rounded && !getProps.fullRounded,
+      'rounded-full': getProps.fullRounded,
       'brightness-75 cursor-not-allowed': getProps.disabled,
       'btn-sm': getProps.size === 'sm',
       'btn-md': getProps.size === 'md',
