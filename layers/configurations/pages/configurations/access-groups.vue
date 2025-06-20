@@ -10,6 +10,11 @@ const newRoleModal = ref({
   hideDialogBox: () => {},
 });
 
+const newUserModal = ref({
+  showDialogBox: () => {},
+  hideDialogBox: () => {},
+});
+
 const tabs: TabsData[] = [
   {
     name: "Roles",
@@ -40,6 +45,10 @@ const tabs: TabsData[] = [
       <Teleport to="body">
         <ConfigAccessGroupsRolesNewModal ref="newRoleModal">
         </ConfigAccessGroupsRolesNewModal>
+
+        <AppModal ref="newUserModal">
+          <ConfigAccessGroupsUsersNewInvitesModal></ConfigAccessGroupsUsersNewInvitesModal>
+        </AppModal>
       </Teleport>
 
       <div class="w-full md:w-auto">
@@ -85,6 +94,7 @@ const tabs: TabsData[] = [
               <li class="w-full">
                 <button
                   class="border w-full border-dashboard-card-divider rounded-md px-5 py-3 flex items-center gap-2 text-dashboard-heading hover:text-brand-color-default hover:border-brand-color-default"
+                  @click="newUserModal.showDialogBox()"
                 >
                   <icon name="vent:send-2" size="1.5rem"></icon>
                   <span class="text-base">Send Invites</span>
