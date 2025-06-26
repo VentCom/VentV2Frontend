@@ -64,7 +64,7 @@ const tabs: TabsData[] = [
 
       <template #restrictions>
         <div>
-          <TransactionAccountHistory></TransactionAccountHistory>
+          <TransactionRestrictions></TransactionRestrictions>
         </div>
       </template>
 

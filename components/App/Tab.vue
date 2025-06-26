@@ -9,6 +9,7 @@ const props = withDefaults(
     showCount?: boolean;
     hasSidebar?: boolean;
     headerIsSticky?: boolean;
+    tabBtnStyle?: "full-border" | "bottom-border";
   }>(),
   {
     tabList: () => [],
@@ -17,6 +18,7 @@ const props = withDefaults(
     showIcon: true,
     hasSidebar: false,
     headerIsSticky: false,
+    tabBtnStyle: "bottom-border",
   }
 );
 
@@ -39,15 +41,21 @@ watch(activeTabIndex, (newValue, prevValue) => {
   <div class="max-w-[90vw] md:max-w-[1600px]">
     <!-- tab heading -->
     <ul
-      class="inline-flex items-center w-full gap-5 border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x top-1 bg-dashboard-bg z-10"
-      :class="{ sticky: props.headerIsSticky }"
+      class="inline-flex items-center w-full border-b min-w-0 border-dashboard-card-border overflow-x-auto snap-x top-1 bg-dashboard-bg z-10"
+      :class="{
+        sticky: props.headerIsSticky,
+        'gap-5': props.tabBtnStyle === 'bottom-border',
+        'gap-3': props.tabBtnStyle === 'full-border',
+      }"
     >
       <template v-for="(tab, index) in props.tabList" :key="index">
-        <li class="inline-block max-w-40 min-w-9 shrink-0">
+        <li class="inline-block max-w-60 min-w-9 shrink-0">
           <button
             class="tab-btn"
             :class="{
               active: tab.id === activeTabId,
+              'tab-btn-border': props.tabBtnStyle === 'full-border',
+              'tab-btn': props.tabBtnStyle === 'bottom-border',
             }"
             @click="selectTab(tab.id, index)"
           >
@@ -66,7 +74,10 @@ watch(activeTabIndex, (newValue, prevValue) => {
             </span>
           </button>
         </li>
-        <li class="divider-vertical"></li>
+        <li
+          v-if="props.tabBtnStyle === 'bottom-border'"
+          class="divider-vertical"
+        ></li>
       </template>
     </ul>
     <!-- tab heading end-->
@@ -114,8 +125,17 @@ watch(activeTabIndex, (newValue, prevValue) => {
   @apply transition-colors ease-in-out duration-300;
 }
 
+.tab-btn-border {
+  @apply flex items-center gap-2 border rounded-[12px] border-tab-btn-border bg-tab-btn-bg py-3 px-4.5 text-dashboard-text cursor-pointer mb-5;
+  @apply transition-colors ease-in-out duration-300;
+}
+
 .tab-btn .text {
   @apply inline-block pr-2 mb-1.5 text-sm md:text-base whitespace-nowrap;
+}
+
+.tab-btn-border .text {
+  @apply inline-block text-sm md:text-base whitespace-nowrap mb-0;
 }
 
 .tab-btn:hover,
@@ -123,13 +143,26 @@ watch(activeTabIndex, (newValue, prevValue) => {
   @apply border-b-2 border-brand-color-default;
 }
 
+.tab-btn-border:hover,
+.tab-btn-border.active {
+  @apply border border-brand-color-default bg-dashboard-bg;
+}
+
 .tab-btn:hover .icon,
-.tab-btn.active .icon {
+.tab-btn.active .icon,
+.tab-btn-border:hover .icon,
+.tab-btn-border.active .icon {
   @apply text-brand-color-default;
 }
 
+.tab-btn-border .icon {
+  @apply h-5;
+}
+
 .tab-btn:hover .text,
-.tab-btn.active .text {
+.tab-btn.active .text,
+.tab-btn-border:hover .text,
+.tab-btn-border.active .text {
   @apply text-dashboard-heading;
 }
 

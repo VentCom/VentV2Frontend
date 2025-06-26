@@ -13,11 +13,12 @@ export const transactionListBody: ITableBodyData[] = [
     user_email: "exa***ple@email.com",
     d_status: "Rejected",
     settlement_status: "Unpaid",
-    asset: "USDT",
-    network: "BEP20",
+    asset: "BTC",
+    network: "Bitcoin",
     rate: "@N1500/USD",
     created_at: "Mar 13, 2025 12:14PM",
     updated_at: "Mar 13, 2025 12:14PM",
+    icon_url: "/img/btc_icon.svg",
   },
   {
     id: 1,
@@ -28,11 +29,12 @@ export const transactionListBody: ITableBodyData[] = [
     user_email: "exa***ple@email.com",
     d_status: "Rejected",
     settlement_status: "Unpaid",
-    asset: "USDT",
-    network: "BEP20",
+    asset: "SOL",
+    network: "Solana",
     rate: "@N1500/USD",
     created_at: "Mar 13, 2025 12:14PM",
     updated_at: "Mar 13, 2025 12:14PM",
+    icon_url: "/img/sol_icon.svg",
   },
   {
     id: 1,
@@ -48,6 +50,7 @@ export const transactionListBody: ITableBodyData[] = [
     rate: "@N1500/USD",
     created_at: "Mar 13, 2025 12:14PM",
     updated_at: "Mar 13, 2025 12:14PM",
+    icon_url: "/img/usdt_icon.svg",
   },
   {
     id: 1,
@@ -63,6 +66,7 @@ export const transactionListBody: ITableBodyData[] = [
     rate: "@N1500/USD",
     created_at: "Mar 13, 2025 12:14PM",
     updated_at: "Mar 13, 2025 12:14PM",
+    icon_url: "/img/usdt_icon.svg",
   },
 ];
 
@@ -166,6 +170,62 @@ export const transactionListHeader: ITableHeaderData[] = [
     span_lg: 1,
     sortable: true,
     cellRow: 2,
+    showHeading: true,
+  },
+];
+
+export const singleUserTransactListHeader: ITableHeaderData[] = [
+  {
+    name: "Network",
+    id: "network",
+    span_xs: 1,
+    span_md: 1,
+    span_lg: 1,
+    sortable: false,
+    cellRow: 1,
+    showHeading: false,
+  },
+  {
+    name: "Deposit",
+    id: "deposit",
+    span_xs: 1,
+    span_md: 1,
+    span_lg: 1,
+    sortable: true,
+    cellRow: 1,
+    showHeading: true,
+  },
+  {
+    name: "Settlement",
+    id: "payout",
+    span_xs: 1,
+    span_md: 2,
+    span_lg: 2,
+    sortable: true,
+    cellRow: 1,
+    showHeading: true,
+  },
+
+  {
+    name: "Date Created",
+    id: "created_at",
+    span_xs: 1,
+    span_md: 2,
+    span_lg: 2,
+    sortable: true,
+    cellRow: 1,
+    showHeading: true,
+  },
+
+  {
+    name: "Settlement",
+    id: "settlement_status",
+    span_xs: 1,
+    span_md: 1,
+    span_lg: 1,
+    sortable: true,
+    justify: "center",
+    cellRow: 1,
     showHeading: true,
   },
 ];

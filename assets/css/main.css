@@ -199,11 +199,13 @@
     --color-dashboard-bg-dark: #F2F4F7;
     --color-dashboard-bg-darker: #FAFAFA;
     --color-dashboard-card-border: #E6E9EF;
+    --color-dashboard-card-border-light: #F2F4F7;
     --color-dashboard-card-divider: #F2F4F7;
     --color-dashboard-header-border: #ECEEF3;
     --color-dashboard-input-border: #E6E9EF;
     --color-dashboard-heading: #242933;
     --color-dashboard-text: #6A6E76;
+    --color-dashboard-text-darker: #001119;
     --color-dashboard-text-light: #9A9DA3;
     --color-dashboard-text-lighter: #D9D9D9;
 
@@ -235,4 +237,8 @@
     /*Modal*/
     --color-modal-heading: #000000;
     --color-modal-subheading: #3B404A;
+
+    /*Tab*/
+    --color-tab-btn-border: #ECEEF3;
+    --color-tab-btn-bg: #FAFAFA;
 }
