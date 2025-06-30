@@ -1,0 +1,729 @@
+{
+    "styleGuide": {
+        "name": "VentAdmin Design System",
+        "version": "2.0",
+        "description": "Comprehensive design system for VentAdmin platform",
+        "lastUpdated": "December 2024",
+        "brand": {
+            "name": "Vent",
+            "tagline": "Financial Technology Platform",
+            "primaryColor": "#00AAFE",
+            "secondaryColor": "#FFF700"
+        },
+        "typography": {
+            "fontFamilies": {
+                "heading": {
+                    "name": "TheLoveClub",
+                    "type": "Display",
+                    "weights": [
+                        400
+                    ],
+                    "fallback": "serif"
+                },
+                "body": {
+                    "name": "Lato",
+                    "type": "Sans-serif",
+                    "weights": [
+                        100,
+                        300,
+                        400,
+                        700,
+                        900
+                    ],
+                    "styles": [
+                        "normal",
+                        "italic"
+                    ],
+                    "fallback": "sans-serif"
+                },
+                "alternative": {
+                    "name": "Matter",
+                    "type": "Sans-serif",
+                    "weights": [
+                        300,
+                        400,
+                        500,
+                        600,
+                        700,
+                        800
+                    ],
+                    "fallback": "sans-serif"
+                }
+            },
+            "fontSizes": {
+                "xs": "0.75rem",
+                "sm": "0.875rem",
+                "base": "1rem",
+                "lg": "1.125rem",
+                "xl": "1.25rem",
+                "2xl": "1.5rem",
+                "3xl": "1.875rem",
+                "4xl": "2.25rem",
+                "5xl": "3rem",
+                "6xl": "3.75rem",
+                "custom": {
+                    "0.6rem": "0.6rem",
+                    "0.813rem": "0.813rem",
+                    "0.625rem": "0.625rem",
+                    "0.68rem": "0.68rem",
+                    "0.81rem": "0.81rem",
+                    "0.55rem": "0.55rem"
+                }
+            },
+            "fontWeights": {
+                "thin": 100,
+                "light": 300,
+                "normal": 400,
+                "medium": 500,
+                "semibold": 600,
+                "bold": 700,
+                "heavy": 800,
+                "black": 900
+            },
+            "lineHeights": {
+                "tight": 1.25,
+                "normal": 1.5,
+                "relaxed": 1.75
+            },
+            "letterSpacing": {
+                "tight": "-0.025em",
+                "normal": "0em",
+                "wide": "0.025em",
+                "wider": "0.05em",
+                "widest": "0.1em"
+            }
+        },
+        "colors": {
+            "brand": {
+                "primary": {
+                    "default": "#00AAFE",
+                    "001": "#001119",
+                    "002": "#002233",
+                    "003": "#00334C",
+                    "004": "#004466",
+                    "005": "#006698",
+                    "006": "#0088CB",
+                    "007": "#00AAFE",
+                    "008": "#33BBFE",
+                    "009": "#66CCFE",
+                    "010": "#99DDFF",
+                    "011": "#B2E5FF",
+                    "012": "#CCEEFF",
+                    "013": "#E5F6FF"
+                },
+                "secondary": {
+                    "default": "#FFF700",
+                    "001": "#1A1900",
+                    "002": "#333100",
+                    "003": "#4D4A00",
+                    "004": "#666300",
+                    "005": "#999400",
+                    "006": "#CCC600",
+                    "007": "#FFF700",
+                    "008": "#FFF933",
+                    "009": "#FFFA66",
+                    "010": "#FFFC99",
+                    "011": "#FFFDB2",
+                    "012": "#FFFDCC",
+                    "013": "#FFFEE5"
+                }
+            },
+            "neutral": {
+                "black": {
+                    "default": "#000000",
+                    "001": "#333333",
+                    "002": "#666666",
+                    "003": "#999999",
+                    "004": "#B3B3B3",
+                    "005": "#CCCCCC",
+                    "006": "#E6E6E6"
+                },
+                "gray": {
+                    "001": "#242933",
+                    "009": "#ECEEF3",
+                    "010": "#F2F4F7",
+                    "011": "#F8F9FC"
+                },
+                "white": "#FFFFFF"
+            },
+            "semantic": {
+                "success": {
+                    "primary": "#00B22D",
+                    "light": "#B2FFC4",
+                    "lighter": "#E5FFEB",
+                    "005": "#009923"
+                },
+                "warning": {
+                    "primary": "#FF5E00",
+                    "light": "#FFEFE5",
+                    "008": "#FF7E33"
+                },
+                "error": {
+                    "primary": "#E32900",
+                    "light": "#FFEFE5"
+                },
+                "info": {
+                    "primary": "#00AAFE",
+                    "light": "#B2E5FF"
+                }
+            },
+            "contextual": {
+                "dashboard": {
+                    "bg": "#FFFFFF",
+                    "bgDark": "#F2F4F7",
+                    "bgDarker": "#FAFAFA",
+                    "cardBorder": "#E6E9EF",
+                    "cardBorderLight": "#F2F4F7",
+                    "cardDivider": "#F2F4F7",
+                    "headerBorder": "#ECEEF3",
+                    "inputBorder": "#E6E9EF",
+                    "heading": "#242933",
+                    "text": "#6A6E76",
+                    "textDarker": "#001119",
+                    "textLight": "#9A9DA3",
+                    "textLighter": "#D9D9D9"
+                },
+                "auth": {
+                    "bg": "#FFFFFF",
+                    "heading": "#000000",
+                    "subheading": "#3B404A",
+                    "inputLabel": "#000000",
+                    "inputText": "#000000",
+                    "inputPlaceholder": "#B3B3B3",
+                    "inputBorder": "#DFE3EC",
+                    "passHideBtn": "#F2F4F7",
+                    "passHideBtnText": "#000000"
+                },
+                "modal": {
+                    "heading": "#000000",
+                    "subheading": "#3B404A"
+                },
+                "dropdown": {
+                    "outline": "#F8F9FC",
+                    "border": "#F2F4F7",
+                    "heading": "#666666"
+                },
+                "table": {
+                    "headingBg": "#F8F9FC"
+                },
+                "tab": {
+                    "btnBorder": "#ECEEF3",
+                    "btnBg": "#FAFAFA"
+                }
+            }
+        },
+        "spacing": {
+            "scale": {
+                "0": "0",
+                "1": "0.25rem",
+                "2": "0.5rem",
+                "3": "0.75rem",
+                "3.5": "0.875rem",
+                "4": "1rem",
+                "5": "1.25rem",
+                "5.5": "1.375rem",
+                "6": "1.5rem",
+                "7": "1.75rem",
+                "8": "2rem",
+                "9": "2.25rem",
+                "10": "2.5rem",
+                "11": "2.75rem",
+                "12": "3rem",
+                "13": "3.25rem",
+                "14": "3.5rem",
+                "15": "3.75rem",
+                "16": "4rem",
+                "20": "5rem",
+                "22": "5.5rem",
+                "24": "6rem",
+                "28": "7rem",
+                "32": "8rem",
+                "36": "9rem",
+                "40": "10rem",
+                "44": "11rem",
+                "48": "12rem",
+                "52": "13rem",
+                "56": "14rem",
+                "60": "15rem",
+                "64": "16rem",
+                "72": "18rem",
+                "80": "20rem",
+                "96": "24rem"
+            },
+            "custom": {
+                "0.5": "0.125rem",
+                "1.5": "0.375rem",
+                "2.5": "0.625rem",
+                "3.5": "0.875rem",
+                "4.5": "1.125rem",
+                "5.5": "1.375rem",
+                "6.5": "1.625rem",
+                "7.5": "1.875rem",
+                "8.5": "2.125rem",
+                "9.5": "2.375rem",
+                "10.5": "2.625rem",
+                "11.5": "2.875rem",
+                "12.5": "3.125rem",
+                "13.5": "3.375rem",
+                "14.5": "3.625rem",
+                "15.5": "3.875rem",
+                "16.5": "4.125rem",
+                "17.5": "4.375rem",
+                "18.5": "4.625rem",
+                "19.5": "4.875rem",
+                "20.5": "5.125rem",
+                "21.5": "5.375rem",
+                "22.5": "5.625rem",
+                "23.5": "5.875rem",
+                "24.5": "6.125rem",
+                "25.5": "6.375rem",
+                "26.5": "6.625rem",
+                "27.5": "6.875rem",
+                "28.5": "7.125rem",
+                "29.5": "7.375rem",
+                "30.5": "7.625rem",
+                "31.5": "7.875rem",
+                "32.5": "8.125rem",
+                "33.5": "8.375rem",
+                "34.5": "8.625rem",
+                "35.5": "8.875rem",
+                "36.5": "9.125rem",
+                "37.5": "9.375rem",
+                "38.5": "9.625rem",
+                "39.5": "9.875rem",
+                "40.5": "10.125rem",
+                "41.5": "10.375rem",
+                "42.5": "10.625rem",
+                "43.5": "10.875rem",
+                "44.5": "11.125rem",
+                "45.5": "11.375rem",
+                "46.5": "11.625rem",
+                "47.5": "11.875rem",
+                "48.5": "12.125rem",
+                "49.5": "12.375rem",
+                "50.5": "12.625rem",
+                "51.5": "12.875rem",
+                "52.5": "13.125rem",
+                "53.5": "13.375rem",
+                "54.5": "13.625rem",
+                "55.5": "13.875rem",
+                "56.5": "14.125rem",
+                "57.5": "14.375rem",
+                "58.5": "14.625rem",
+                "59.5": "14.875rem",
+                "60.5": "15.125rem",
+                "61.5": "15.375rem",
+                "62.5": "15.625rem",
+                "63.5": "15.875rem",
+                "64.5": "16.125rem",
+                "65.5": "16.375rem",
+                "66.5": "16.625rem",
+                "67.5": "16.875rem",
+                "68.5": "17.125rem",
+                "69.5": "17.375rem",
+                "70.5": "17.625rem",
+                "71.5": "17.875rem",
+                "72.5": "18.125rem",
+                "73.5": "18.375rem",
+                "74.5": "18.625rem",
+                "75.5": "18.875rem",
+                "76.5": "19.125rem",
+                "77.5": "19.375rem",
+                "78.5": "19.625rem",
+                "79.5": "19.875rem",
+                "80.5": "20.125rem",
+                "81.5": "20.375rem",
+                "82.5": "20.625rem",
+                "83.5": "20.875rem",
+                "84.5": "21.125rem",
+                "85.5": "21.375rem",
+                "86.5": "21.625rem",
+                "87.5": "21.875rem",
+                "88.5": "22.125rem",
+                "89.5": "22.375rem",
+                "90.5": "22.625rem",
+                "91.5": "22.875rem",
+                "92.5": "23.125rem",
+                "93.5": "23.375rem",
+                "94.5": "23.625rem",
+                "95.5": "23.875rem",
+                "96.5": "24.125rem",
+                "97.5": "24.375rem",
+                "98.5": "24.625rem",
+                "99.5": "24.875rem"
+            }
+        },
+        "borderRadius": {
+            "none": "0",
+            "sm": "0.125rem",
+            "base": "0.25rem",
+            "md": "0.375rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1rem",
+            "3xl": "1.5rem",
+            "4xl": "2rem",
+            "full": "9999px",
+            "custom": {
+                "8px": "8px",
+                "12px": "12px",
+                "16px": "16px",
+                "20px": "20px",
+                "24px": "24px",
+                "32px": "32px",
+                "40px": "40px",
+                "48px": "48px",
+                "60px": "60px"
+            }
+        },
+        "shadows": {
+            "none": "none",
+            "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+            "base": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+            "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+            "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+            "custom": {
+                "brand": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                "dropdown": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+                "hover": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+            }
+        },
+        "transitions": {
+            "duration": {
+                "75": "75ms",
+                "100": "100ms",
+                "150": "150ms",
+                "200": "200ms",
+                "300": "300ms",
+                "400": "400ms",
+                "500": "500ms",
+                "600": "600ms",
+                "700": "700ms",
+                "1000": "1000ms"
+            },
+            "easing": {
+                "linear": "linear",
+                "in": "cubic-bezier(0.4, 0, 1, 1)",
+                "out": "cubic-bezier(0, 0, 0.2, 1)",
+                "inOut": "cubic-bezier(0.4, 0, 0.2, 1)"
+            },
+            "properties": {
+                "all": "all",
+                "colors": "color, background-color, border-color, text-decoration-color, fill, stroke",
+                "opacity": "opacity",
+                "shadow": "box-shadow",
+                "transform": "transform"
+            }
+        },
+        "breakpoints": {
+            "xs": "0px",
+            "sm": "640px",
+            "md": "768px",
+            "lg": "1024px",
+            "xl": "1280px",
+            "2xl": "1536px"
+        },
+        "components": {
+            "button": {
+                "sizes": {
+                    "sm": {
+                        "padding": "0.5rem 1rem",
+                        "fontSize": "0.875rem",
+                        "borderRadius": "0.375rem"
+                    },
+                    "md": {
+                        "padding": "0.75rem 1.5rem",
+                        "fontSize": "1rem",
+                        "borderRadius": "0.5rem"
+                    },
+                    "lg": {
+                        "padding": "1rem 2rem",
+                        "fontSize": "1.125rem",
+                        "borderRadius": "0.5rem"
+                    }
+                },
+                "variants": {
+                    "primary": {
+                        "backgroundColor": "#00AAFE",
+                        "color": "#FFFFFF",
+                        "border": "1px solid #00AAFE",
+                        "hover": {
+                            "backgroundColor": "#006698",
+                            "borderColor": "#006698"
+                        }
+                    },
+                    "outlined": {
+                        "backgroundColor": "transparent",
+                        "color": "#00AAFE",
+                        "border": "1px solid #00AAFE",
+                        "hover": {
+                            "backgroundColor": "#00AAFE",
+                            "color": "#FFFFFF"
+                        }
+                    },
+                    "neutral": {
+                        "backgroundColor": "#ECEEF3",
+                        "color": "#242933",
+                        "border": "1px solid #ECEEF3",
+                        "hover": {
+                            "backgroundColor": "#F2F4F7"
+                        }
+                    }
+                }
+            },
+            "input": {
+                "base": {
+                    "padding": "1rem 1.5rem",
+                    "border": "1px solid #DFE3EC",
+                    "borderRadius": "0.5rem",
+                    "fontSize": "1rem",
+                    "fontFamily": "Lato, sans-serif",
+                    "transition": "all 0.3s ease"
+                },
+                "states": {
+                    "focus": {
+                        "borderColor": "#00AAFE",
+                        "boxShadow": "0 0 0 4px rgba(0, 170, 254, 0.1)"
+                    },
+                    "hover": {
+                        "borderColor": "#00AAFE"
+                    },
+                    "error": {
+                        "borderColor": "#E32900",
+                        "boxShadow": "0 0 0 4px rgba(227, 41, 0, 0.1)"
+                    }
+                }
+            },
+            "card": {
+                "base": {
+                    "backgroundColor": "#FFFFFF",
+                    "border": "1px solid #E6E9EF",
+                    "borderRadius": "1rem",
+                    "padding": "1.5rem",
+                    "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1)"
+                },
+                "variants": {
+                    "elevated": {
+                        "boxShadow": "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+                    },
+                    "outlined": {
+                        "boxShadow": "none"
+                    }
+                }
+            },
+            "modal": {
+                "overlay": {
+                    "backgroundColor": "rgba(0, 0, 0, 0.4)",
+                    "backdropFilter": "blur(4px)"
+                },
+                "content": {
+                    "backgroundColor": "#FFFFFF",
+                    "borderRadius": "1.5rem",
+                    "border": "6px solid #EDF3FF",
+                    "maxWidth": "90vw",
+                    "maxHeight": "90vh"
+                }
+            },
+            "pills": {
+                "base": {
+                    "padding": "0.125rem 0.625rem",
+                    "borderRadius": "9999px",
+                    "fontSize": "0.875rem",
+                    "fontWeight": "500"
+                },
+                "colors": {
+                    "blue": {
+                        "backgroundColor": "#CCEEFF",
+                        "color": "#00AAFE"
+                    },
+                    "green": {
+                        "backgroundColor": "#E5FFEB",
+                        "color": "#00CC2F"
+                    },
+                    "red": {
+                        "backgroundColor": "#FEE2E2",
+                        "color": "#EF4444"
+                    },
+                    "orange": {
+                        "backgroundColor": "#FFEFE5",
+                        "color": "#FF5E00"
+                    },
+                    "yellow": {
+                        "backgroundColor": "#FFFEE5",
+                        "color": "#FF9E05"
+                    }
+                }
+            }
+        },
+        "layout": {
+            "container": {
+                "maxWidth": "1475px",
+                "padding": "1.5rem"
+            },
+            "grid": {
+                "columns": {
+                    "1": "repeat(1, minmax(0, 1fr))",
+                    "2": "repeat(2, minmax(0, 1fr))",
+                    "3": "repeat(3, minmax(0, 1fr))",
+                    "4": "repeat(4, minmax(0, 1fr))",
+                    "5": "repeat(5, minmax(0, 1fr))",
+                    "6": "repeat(6, minmax(0, 1fr))",
+                    "12": "repeat(12, minmax(0, 1fr))"
+                },
+                "gaps": {
+                    "1": "0.25rem",
+                    "2": "0.5rem",
+                    "3": "0.75rem",
+                    "4": "1rem",
+                    "5": "1.25rem",
+                    "6": "1.5rem",
+                    "8": "2rem",
+                    "10": "2.5rem",
+                    "12": "3rem"
+                }
+            },
+            "sidebar": {
+                "width": "280px",
+                "backgroundColor": "#FFFFFF",
+                "borderRight": "1px solid #E6E9EF"
+            }
+        },
+        "animations": {
+            "keyframes": {
+                "fadeIn": {
+                    "0%": {
+                        "opacity": "0"
+                    },
+                    "100%": {
+                        "opacity": "1"
+                    }
+                },
+                "slideUp": {
+                    "0%": {
+                        "opacity": "0",
+                        "transform": "translateY(80%)"
+                    },
+                    "100%": {
+                        "opacity": "1",
+                        "transform": "translateY(0)"
+                    }
+                },
+                "slideDown": {
+                    "0%": {
+                        "opacity": "0",
+                        "transform": "translateY(-80%)"
+                    },
+                    "100%": {
+                        "opacity": "1",
+                        "transform": "translateY(0)"
+                    }
+                },
+                "scale": {
+                    "0%": {
+                        "transform": "scale(1.5)"
+                    },
+                    "100%": {
+                        "transform": "scale(1)"
+                    }
+                },
+                "bars": {
+                    "0%": {
+                        "height": "0%"
+                    },
+                    "100%": {
+                        "height": "100%"
+                    }
+                }
+            },
+            "durations": {
+                "fast": "0.2s",
+                "normal": "0.3s",
+                "slow": "0.5s",
+                "slower": "1s"
+            }
+        },
+        "zIndex": {
+            "auto": "auto",
+            "0": "0",
+            "10": "10",
+            "20": "20",
+            "30": "30",
+            "40": "40",
+            "50": "50",
+            "60": "60",
+            "70": "70",
+            "80": "80",
+            "90": "90",
+            "100": "100",
+            "200": "200",
+            "300": "300",
+            "400": "400",
+            "500": "500",
+            "1000": "1000"
+        },
+        "accessibility": {
+            "focusRing": {
+                "color": "#00AAFE",
+                "width": "2px",
+                "offset": "2px"
+            },
+            "contrast": {
+                "minimum": "4.5:1",
+                "enhanced": "7:1"
+            },
+            "reducedMotion": {
+                "prefersReducedMotion": "reduce"
+            }
+        },
+        "icons": {
+            "sizes": {
+                "xs": "0.75rem",
+                "sm": "1rem",
+                "md": "1.25rem",
+                "lg": "1.5rem",
+                "xl": "1.75rem",
+                "2xl": "2rem",
+                "3xl": "2.5rem",
+                "4xl": "3rem",
+                "5xl": "3.5rem"
+            },
+            "prefix": "vent:",
+            "collection": "Custom SVG icons with consistent naming convention"
+        },
+        "patterns": {
+            "pageHeader": {
+                "marginBottom": "2rem",
+                "title": {
+                    "fontSize": "1.5rem",
+                    "fontWeight": "700",
+                    "color": "#242933",
+                    "marginBottom": "0.25rem"
+                },
+                "description": {
+                    "fontSize": "0.813rem",
+                    "color": "#6A6E76"
+                }
+            },
+            "cardHeader": {
+                "padding": "1.5rem",
+                "borderBottom": "1px solid #F2F4F7",
+                "title": {
+                    "fontSize": "1.25rem",
+                    "fontWeight": "600",
+                    "color": "#242933"
+                }
+            },
+            "formSection": {
+                "marginBottom": "2rem",
+                "label": {
+                    "fontSize": "0.875rem",
+                    "fontWeight": "500",
+                    "color": "#000000",
+                    "marginBottom": "0.5rem"
+                }
+            }
+        }
+    }
+}

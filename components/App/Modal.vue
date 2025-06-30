@@ -1,4 +1,15 @@
 <script setup lang="ts">
+const props = withDefaults(
+  defineProps<{
+    desktopWidth?: string;
+    hidePattern?: boolean;
+  }>(),
+  {
+    desktopWidth: "700px",
+    hidePattern: false,
+  }
+);
+
 const isOpen = ref<boolean>(false);
 
 const dialogBox = ref<HTMLDialogElement | null>(null);
@@ -55,7 +66,8 @@ defineExpose({
   <div class="font-body">
     <dialog
       ref="dialogBox"
-      class="dialog-box"
+      class="dialog-box w-full md:w-[var(--desktop-width)]"
+      :style="{ '--desktop-width': props.desktopWidth }"
       @keydown.prevent.esc="hideDialogBox()"
       @click="handleOutsideClick($event)"
       @touchEnd="handleOutsideTouchClick($event)"
@@ -67,6 +79,7 @@ defineExpose({
         >
           <div ref="dialogBoxBody" class="dialog-body relative">
             <img
+              v-if="!props.hidePattern"
               src="/img/modal-header.svg"
               class="w-[50%] absolute right-0 top-10"
               alt=""
@@ -92,7 +105,7 @@ defineExpose({
 @reference "~/assets/css/main.css";
 
 .dialog-box {
-  @apply z-70 w-full md:w-[700px] h-screen p-4 right-[50%] translate-x-[50%] bottom-0 bg-transparent m-0 inset-auto transform-none outline-none overflow-visible;
+  @apply z-70  h-screen p-4 right-[50%] translate-x-[50%] bottom-0 bg-transparent m-0 inset-auto transform-none outline-none overflow-visible;
   position: fixed;
 }
 

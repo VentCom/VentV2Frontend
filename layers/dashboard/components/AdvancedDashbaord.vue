@@ -55,7 +55,7 @@ import DashTradeStats from "./DashTradeStats.vue";
 
         <div class="flex flex-col w-full gap-4">
           <DashSettlementStats></DashSettlementStats>
-          <DashRevenueTracker></DashRevenueTracker>
+          <DashRevenueTrackerVariant></DashRevenueTrackerVariant>
         </div>
       </div>
     </div>

@@ -1,4 +1,14 @@
+<script setup lang="ts">
+import AppModal from "~/components/App/Modal.vue";
+
+const devicesModalRef = ref<InstanceType<typeof AppModal>>();
+</script>
 <template>
+  <Teleport to="body">
+    <AppModal ref="devicesModalRef" desktop-width="874px" hide-pattern>
+      <AdminListSingleUserModalsDevices />
+    </AppModal>
+  </Teleport>
   <ul
     class="w-full pt-8 border-t border-dashboard-card-border flex-col flex gap-6"
   >
@@ -80,6 +90,7 @@
         <span class="text-xs md:text-sm"> 3 </span>
 
         <button
+          @click="devicesModalRef?.showDialogBox()"
           class="w-[18.3px] h-[18.3px] rounded-full bg-brand-color-011 flex items-center justify-center text-brand-color-default"
         >
           <Icon name="vent:arrow-2" size="0.5rem"></Icon>

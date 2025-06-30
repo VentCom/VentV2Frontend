@@ -70,9 +70,9 @@ const tabs = ref<TabsData[]>([
     <!-- sidebar end -->
 
     <div class="w-full flex flex-col gap-5">
-      <div
-        class="w-full border border-dashboard-card-border rounded-2xl p-6"
-      ></div>
+      <div class="w-full border border-dashboard-card-border rounded-2xl p-6">
+        <AdminListSingleUserWorktimeSummary></AdminListSingleUserWorktimeSummary>
+      </div>
 
       <div class="w-full">
         <AdminListSingleUserTransactions></AdminListSingleUserTransactions>
