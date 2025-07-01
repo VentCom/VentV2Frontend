@@ -9,31 +9,36 @@
 @font-face {
     font-family: 'Lato';
     src: url('/assets/fonts/lato/Lato-Black.ttf') format('truetype');
-    font-weight:900
+    font-weight: 900;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Lato';
     src: url('/assets/fonts/lato/Lato-Bold.ttf') format('truetype');
-    font-weight:700
+    font-weight: 700;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Lato';
     src: url('/assets/fonts/lato/Lato-Regular.ttf') format('truetype');
-    font-weight:400
+    font-weight: 400;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Lato';
     src: url('/assets/fonts/lato/Lato-Light.ttf') format('truetype');
-    font-weight:300
+    font-weight: 300;
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'Lato';
     src: url('/assets/fonts/lato/Lato-Thin.ttf') format('truetype');
-    font-weight:100
+    font-weight: 100;
+    font-display: swap;
 }
 
 @font-face {
@@ -100,6 +105,7 @@
     --font-body: 'Lato';
     --font-alternative: 'Matter';
 
+    /* Font family configurations */
     --color-brand-color-default: #00AAFE;
     --color-black-scale-default: #000000;
     --color-biege-drv-default: #FFFCF5;
@@ -241,4 +247,23 @@
     /*Tab*/
     --color-tab-btn-border: #ECEEF3;
     --color-tab-btn-bg: #FAFAFA;
+}
+
+/* Global font application */
+html, body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Ensure font-body class works */
+.font-body {
+    font-family: 'Lato', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}
+
+/* Additional font loading optimizations */
+.font-heading {
+    font-family: 'TheLoveClub', serif !important;
+}
+
+.font-alternative {
+    font-family: 'Matter', sans-serif !important;
 }
