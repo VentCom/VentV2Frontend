@@ -142,13 +142,16 @@ const getBarColor = (growth: number) => {
     </div>
 
     <!-- Revenue Stats -->
-    <div class="flex items-center gap-2 w-[60%]">
-      <p class="text-3xl font-bold text-brand-color-004 font-alternative">
+    <div class="flex items-center gap-2 w-full">
+      <p
+        class="text-3xl font-bold text-brand-color-004 font-alternative shrink-0"
+      >
         +{{ parseFloat(averageGrowth).toFixed(0) }}%
       </p>
-      <p class="text-dashboard-text text-[0.813rem] leading-[100%]">
+      <p class="text-dashboard-text text-[0.813rem] leading-[100%] shrink-0">
         Higher than last week’s trades
       </p>
+      <div class="grow border-b border-dashboard-card-border"></div>
     </div>
 
     <!-- Legend -->
