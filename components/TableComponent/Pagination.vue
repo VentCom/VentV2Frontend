@@ -1,8 +1,22 @@
 <template>
   <div class="flex justify-center md:justify-between md:items-center">
-    <p class="text-base hidden md:inline text-dashboard-text-light">
+    <!-- <p class="text-base hidden md:inline text-dashboard-text-light">
       Showing - 1 to 8 of 8 Entries
-    </p>
+    </p> -->
+
+    <div
+      class="gap-2 items-center text-base hidden md:inline-flex text-dashboard-text-light"
+    >
+      <span>Display</span>
+      <input
+        type="number"
+        class="w-14 p-2 py-1 border border-dashboard-card-border rounded-sm"
+        value="1"
+        name=""
+        id=""
+      />
+      <span>per page</span>
+    </div>
 
     <div class="flex gap-2">
       <button
