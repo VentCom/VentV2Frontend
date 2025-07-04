@@ -5,12 +5,14 @@ interface ContainerProps {
   for?: string;
   prefix?: string;
   isPassword?: boolean;
+  canPaste?: boolean;
 }
 const containerProps = withDefaults(defineProps<ContainerProps>(), {
   label: "",
   prefix: "",
   isPassword: false,
   passwordIsVisible: false,
+  canPaste: false,
 });
 
 const requestError = computed(() => containerProps.error);
@@ -42,6 +44,8 @@ const toggglePasswordVisibility = () => {
       >
         {{ passwordIsVisible ? "Hide" : "Show" }}
       </button>
+
+      <button class="password-hide" v-if="canPaste">paste</button>
     </div>
     <span class="error">{{ requestError }}</span>
   </div>
@@ -50,7 +54,7 @@ const toggglePasswordVisibility = () => {
 @reference "~/assets/css/main.css";
 
 .input-container {
-  @apply border border-input-border py-4 px-6 outline-0 hover:border-brand-color-default hover:ring-4 hover:ring-brand-color-011/20 focus:border-brand-color-default focus:ring-4 focus:ring-brand-color-011/20;
+  @apply border rounded-[8px] border-input-border py-4 px-6 outline-0 hover:border-brand-color-default hover:ring-4 hover:ring-brand-color-011/20 focus:border-brand-color-default focus:ring-4 focus:ring-brand-color-011/20;
 }
 
 .input-container .error {
@@ -76,10 +80,11 @@ const toggglePasswordVisibility = () => {
 }
 
 .input-body .password-hide {
-  @apply text-[0.55rem] px-2 py-1 bg-auth-pass-hide-btn text-auth-pass-hide-btn-text absolute top-[50%] translate-y-[-50%] cursor-pointer right-0 z-2 uppercase tracking-widest;
+  @apply text-[0.55rem] px-2 py-1 bg-auth-pass-hide-btn rounded-md text-auth-pass-hide-btn-text absolute top-[50%] translate-y-[-50%] cursor-pointer right-0 z-2 uppercase tracking-widest;
 }
 
-.input-body:deep(input[type="password"]) {
+.input-body:deep(input[type="password"]),
+.input-body:deep(input[class="canPaste"]) {
   @apply pr-8;
 }
 

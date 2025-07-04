@@ -26,10 +26,6 @@ const links = ref([
     name: "Security & Privacy",
     route: "/configurations/security-privacy",
   },
-  {
-    name: "Members",
-    route: "/configurations/members",
-  },
 ]);
 
 const sidebarLinks = computed(() => {

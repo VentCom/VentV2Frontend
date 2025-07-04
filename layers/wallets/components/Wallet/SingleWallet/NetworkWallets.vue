@@ -76,7 +76,7 @@ const handleDisableWallet = () => {
     </template>
 
     <template #col_actions="props">
-      <div class="flex justify-end w-full">
+      <div class="flex items-center justify-end w-full relative z-10 pt-3">
         <AppDropdown :widthIsFinite="false" position="right">
           <button class="text-dashboard-text hover:text-brand-color-default">
             <Icon name="vent:empty-more" size="1.2rem"></Icon>

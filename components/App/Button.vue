@@ -17,7 +17,7 @@ const props = withDefaults(
     size: "md",
     outlined: false,
     color: "primary",
-    rounded: false,
+    rounded: true,
     fullRounded: false,
   }
 );
