@@ -46,11 +46,7 @@
 
       <!-- login button -->
       <div class="pt-5">
-        <button
-          class="bg-brand-color-default hover:bg-brand-color-005 cursor-pointer text-white p-5 text-center w-full transition-colors duration-500 ease-in-out"
-        >
-          Login
-        </button>
+        <AppButton block>Submit</AppButton>
       </div>
       <!-- login button end-->
     </div>

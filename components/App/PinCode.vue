@@ -220,7 +220,7 @@ export default {
 }
 
 .vue-pincode-input-wrapper .vue-pincode-input.default {
-  @apply border-[#DDE3EE] hover:border-brand-color-default hover:ring-2 hover:ring-brand-color-013 focus:border-brand-color-default focus:ring-4 focus:ring-brand-color-013;
+  @apply border-[#DDE3EE] rounded-[12px] hover:border-brand-color-default hover:ring-2 hover:ring-brand-color-013 focus:border-brand-color-default focus:ring-4 focus:ring-brand-color-013;
   transition: all 0.3s;
 }
 

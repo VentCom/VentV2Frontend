@@ -23,17 +23,14 @@ const goBack = () => {
         <h1
           class="text-3xl md:text-[2.438rem] font-semibold text-auth-heading text-center mb-2 align-start tracking-tight"
         >
-          <span>Welcome Back, </span>
-          <img
-            src="/img/user.jpg"
-            class="inline-block w-10 aspect-square rounded-2xl border-2 border-brand-color-012 object-cover object-center"
-            alt=""
-          />
-
-          <span> Imani</span>
+          <span
+            >Enter Code From <br />
+            Your Authenticator App
+          </span>
         </h1>
         <p class="text-sm md:text-base text-auth-subheading text-center">
-          Enter the 6-digits code from your authentication app to continue.
+          Enter the 6-digits code from your authentication app. Codes refresh
+          every 30 seconds. Make sure you’re entering the most recent one.
         </p>
       </div>
       <!-- heading end-->
@@ -51,8 +48,18 @@ const goBack = () => {
         </div>
 
         <!-- login button -->
-        <div class="pt-5">
+        <div class="pt-5 w-full flex flex-col gap-6">
           <AppButton block>Submit</AppButton>
+          <div
+            class="flex items-center gap-2 justify-center text-sm text-dashboard-text"
+          >
+            Having issues?
+            <a
+              href="#"
+              class="text-dashboard-heading hover:text-brand-color-007"
+              >Contact Support</a
+            >
+          </div>
         </div>
         <!-- login button end-->
       </div>
