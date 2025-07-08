@@ -49,7 +49,7 @@ onMounted(() => {});
       <swiper-slide
         v-for="(slide, index) in slides"
         :key="index"
-        class="relative h-full w-full flex flex-col justify-end p-16 pb-22 overflow-hidden"
+        class="relative h-full w-full flex flex-col justify-end p-16 pb-5 overflow-hidden"
       >
         <div class="absolute top-0 left-0 w-full h-full">
           <div class="w-full h-full relative"></div>
