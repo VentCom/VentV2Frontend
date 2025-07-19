@@ -4,7 +4,7 @@ import { AppPills } from "#components";
 
 <template>
   <div
-    class="w-full border border-dashboard-card-border rounded-[10px] p-5 flex flex-col gap-3"
+    class="w-full border border-dashboard-card-border bg-white rounded-[10px] p-5 flex flex-col gap-3"
   >
     <div class="w-full flex items-center justify-between text-[10px] uppercase">
       <AppPills color="blue">Business</AppPills>

@@ -4,24 +4,24 @@ import { AppPills } from "#components";
 
 <template>
   <div
-    class="w-full border border-dashboard-card-border rounded-[10px] p-5 flex justify-between gap-3"
+    class="w-full border border-dashboard-card-border rounded-[10px] p-5 flex justify-between gap-3 bg-white"
   >
     <div class="flex items-start gap-2 w-full">
       <img src="/img/usdt_icon.svg" class="w-[40px] shrink-0" alt="" />
       <div>
+        <p class="text-dashboard-text-light text-[10px] leading-[130%]">
+          Westgate
+        </p>
         <p
           class="text-dashboard-text-darker font-bold text-base leading-[130%] flex items-center gap-1"
         >
           TFX8ek...76hjkf
-          <span class="text-[8px] uppercase">
+          <span class="text-[8px] uppercase ml-2">
             <AppPills color="green">Active</AppPills>
           </span>
         </p>
         <p class="text-dashboard-text-darker text-sm leading-[130%]">
           USDT (TRC20)
-        </p>
-        <p class="text-dashboard-text-light text-[10px] leading-[130%]">
-          Westgate
         </p>
       </div>
     </div>

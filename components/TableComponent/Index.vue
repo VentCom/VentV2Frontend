@@ -21,6 +21,7 @@ const props = withDefaults(
     grid_cols_md?: number | 7;
     grid_cols_lg?: number | 7;
     routeParamName?: string;
+    hideOuterBorder?: boolean;
   }>(),
   {
     headings: () => [
@@ -46,6 +47,7 @@ const props = withDefaults(
     rowRoute: "",
     canNavigate: true,
     routeParamName: "id",
+    hideOuterBorder: false,
   }
 );
 const emit = defineEmits(["triggerEvent"]);
@@ -64,7 +66,11 @@ const generateGridClass = (span: number) => {
 <template>
   <div class="w-full font-body">
     <div
-      class="border border-dashboard-card-border rounded-2xl p-6"
+      class="rounded-2xl"
+      :class="{
+        'border-0 p-0': hideOuterBorder,
+        'p-6 border border-dashboard-card-border': !hideOuterBorder,
+      }"
       role="table"
     >
       <!-- heading content -->

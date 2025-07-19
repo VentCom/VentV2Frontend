@@ -12,7 +12,9 @@ const copyToClipboard = () => {
   <div
     class="flex items-center gap-1 justify-center group text-sm md:text-base text-dashboard-heading"
   >
-    <span class="text-xs md:text-sm"> {{ text }} </span>
+    <slot>
+      <span class="text-xs md:text-sm"> {{ text }} </span>
+    </slot>
     <button
       @click="copyToClipboard"
       class="inline-block mt-1 group-hover:text-brand-color-default text-dashboard-text-light"

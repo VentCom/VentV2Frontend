@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Icon } from "#components";
+import { AppExpandableModal, Icon } from "#components";
 import {
   customerListBody,
   customerListHeader,
@@ -7,8 +7,28 @@ import {
 
 const header = customerListHeader;
 const data = customerListBody;
+const customerViewModal = ref<InstanceType<typeof AppExpandableModal>>();
+
+const { activateFullView, activateMiniView } = useCustomerConfig();
+
+const showCustomer = () => {
+  customerViewModal.value?.showDialogBox();
+};
+
+onUnmounted(() => {
+  activateMiniView();
+});
 </script>
 <template>
+  <Teleport to="body">
+    <AppExpandableModal
+      @view-full-modal="activateFullView"
+      @view-mini-modal="activateMiniView"
+      ref="customerViewModal"
+    >
+      <CustomerView></CustomerView>
+    </AppExpandableModal>
+  </Teleport>
   <TableComponent
     :headings="header"
     :body="data"
@@ -16,6 +36,8 @@ const data = customerListBody;
     :grid_cols_md="6"
     :grid_cols_lg="6"
     :grid_cols_xs="1"
+    :can-navigate="false"
+    @trigger-event="showCustomer"
   >
     <template #table-heading>
       <TableComponentHeader

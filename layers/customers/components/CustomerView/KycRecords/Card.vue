@@ -17,7 +17,7 @@ const props = withDefaults(
 
 <template>
   <div
-    class="w-full border border-dashboard-card-border rounded-[10px] p-5 flex flex-col gap-4"
+    class="w-full border border-dashboard-card-border rounded-[10px] p-5 flex flex-col gap-4 bg-white"
   >
     <div class="w-full flex items-center justify-between text-[10px]">
       <div class="flex gap-2 w-full">

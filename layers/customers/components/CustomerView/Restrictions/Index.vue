@@ -7,31 +7,38 @@ const toggleCollapsable = () => {
 </script>
 <template>
   <div>
-    <!-- card container -->
     <div
-      class="gap-2 collapsable"
+      class="gap-2 collapsable rounded-xl border border-dashboard-card-border p-5"
       :class="{ 'gap-1 show': isOpen, 'gap-0': !isOpen }"
     >
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-        <CustomerListSingleUserWalletAddressesCard
-          v-for="card in 3"
-        ></CustomerListSingleUserWalletAddressesCard>
+      <div class="grid grid-cols-1 w-full">
+        <TransactionRestrictionsCard hasConnector></TransactionRestrictionsCard>
+        <TransactionRestrictionsCard
+          username="Sylvester Nkeze"
+          avatar="/img/user.jpeg"
+          action="placed transaction on"
+          isLast
+        ></TransactionRestrictionsCard>
       </div>
 
       <!-- collapsable content -->
-      <div class="collapsable-content grid grid-cols-1 md:grid-cols-3 gap-3">
-        <CustomerListSingleUserWalletAddressesCard
-          v-for="card in 3"
-        ></CustomerListSingleUserWalletAddressesCard>
+      <div class="collapsable-content grid grid-cols-1 gap-3">
+        <div class="mt-4">
+          <TransactionRestrictionsCard
+            username="Sylvester Nkeze"
+            avatar="/img/user.jpeg"
+            action="placed transaction on"
+            isLast
+          ></TransactionRestrictionsCard>
+        </div>
       </div>
       <!-- collapsable content -->
     </div>
-    <!-- card container -->
 
     <!-- collapse button -->
     <div class="flex justify-between items-center mt-3.5 w-full gap-2">
       <p class="text-dashboard-text-light text-[13px] shrink-0">
-        Showing 6 of 6
+        {{ isOpen ? "Showing 3 of 3" : "+1 more to show" }}
       </p>
       <div class="border-t border-dashboard-card-border w-full"></div>
       <button
