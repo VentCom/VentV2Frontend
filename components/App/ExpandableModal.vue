@@ -103,26 +103,22 @@ defineExpose({
           </div>
 
           <!-- footer -->
-          <div
-            class="absolute bottom-0 left-0 w-full pb-10 hidden md:flex items-center justify-center"
+          <button
+            @click="toggleModalWidth"
+            class="bg-white p-2 rounded-full shadow-2xl group cursor-pointer absolute left-1/2 translate-x-[-50%] bottom-8"
           >
-            <button
-              @click="toggleModalWidth"
-              class="bg-white p-2 rounded-full shadow-2xl group cursor-pointer"
+            <span
+              class="inline-flex items-center gap-2 py-3 px-4 bg-dashboard-bg-dark border border-dashboard-card-border text-dashboard-text rounded-full group-hover:bg-brand-color-013 group-hover:border-brand-color-default group-hover:text-brand-color-default"
             >
-              <span
-                class="inline-flex items-center gap-2 py-3 px-4 bg-dashboard-bg-dark border border-dashboard-card-border text-dashboard-text rounded-full group-hover:bg-brand-color-013 group-hover:border-brand-color-default group-hover:text-brand-color-default"
-              >
-                <icon
-                  name="vent:slider-horizontal"
-                  size="1rem"
-                  class="group-hover:text-brand-color-default"
-                ></icon>
+              <icon
+                name="vent:slider-horizontal"
+                size="1rem"
+                class="group-hover:text-brand-color-default"
+              ></icon>
 
-                {{ modalWidthIsFull ? "Exit Full" : "Full" }} Mode</span
-              >
-            </button>
-          </div>
+              {{ modalWidthIsFull ? "Exit Full" : "Full" }} Mode</span
+            >
+          </button>
           <!-- footer end-->
         </div>
       </Transition>
