@@ -14,16 +14,12 @@ const data = transactionListBody;
     :body="data"
     :rowRoute="'/transactions/$'"
     :cell-row-count="1"
-    :grid_cols_md="7"
-    :grid_cols_lg="7"
+    :grid_cols_md="5"
+    :grid_cols_lg="5"
     :grid_cols_xs="2"
   >
     <template #table-heading>
-      <TableComponentHeader
-        tableName="All transactions"
-        searchText="transactions"
-      >
-      </TableComponentHeader>
+      <AdminListSingleUserTransactionsHeading></AdminListSingleUserTransactionsHeading>
     </template>
 
     <template #col_d_status="props">

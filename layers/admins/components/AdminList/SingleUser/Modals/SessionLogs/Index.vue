@@ -1,5 +1,5 @@
 <template>
-  <div>
-    <h1>Session Logs</h1>
-  </div>
+  <div
+    class="bg-dashboard-bg-darker rounded-xl border border-dashboard-card-border p-2 grid grid-cols-1 gap-2"
+  ></div>
 </template>

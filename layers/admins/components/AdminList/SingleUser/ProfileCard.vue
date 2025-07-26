@@ -1,33 +1,80 @@
+<script setup lang="ts">
+import { AppClipBoard } from "#components";
+</script>
+
 <template>
-  <div class="flex flex-col items-center gap-6 relative w-full">
+  <div
+    class="border border-dashboard-card-border rounded-[12px] w-full overflow-hidden bg-brand-color-default"
+  >
     <img
-      src="/img/user.jpeg"
-      class="w-31 h-31 rounded-full border-10 border-dashboard-bg object-top object-cover"
-      alt="user avatar"
+      src="/img/profile-bg-2.png"
+      class="w-full h-[133px] object-cover object-center mix-blend-multiply"
+      alt=""
     />
+    <div class="px-5 md:px-11 !pt-0 pb-5 bg-dashboard-bg">
+      <div
+        class="items-end flex gap-4 max-w-[990px] w-full mx-auto translate-y-[-30%]"
+      >
+        <img
+          src="/img/user.jpeg"
+          class="w-[124px] h-[124px] rounded-full object-top object-cover shrink-0 border-10 border-white"
+          alt="user avatar"
+        />
 
-    <!-- Profile data -->
-    <div>
-      <div class="items-center flex gap-2 mb-1">
-        <h1 class="font-medium text-dashboard-heading text-base md:text-xl">
-          Johnny Doe Young
-        </h1>
+        <!-- Profile data -->
+        <div class="flex justify-between items-center gap-5 w-full">
+          <div class="items-start flex flex-col gap-2">
+            <h1 class="font-medium text-dashboard-heading text-base md:text-xl">
+              Johnny Doe Young
+            </h1>
 
-        <span class="text-xs md:text-sm">
-          <AppPills color="green">Active</AppPills>
-        </span>
+            <div class="flex items-center gap-2">
+              <!-- country badge -->
+              <div class="flex items-center gap-1">
+                <img
+                  src="/img/ng-flag.svg"
+                  class="w-4 h-4 rounded-full"
+                  alt=""
+                />
+                <span class="text-dashboard-text">Nigeria</span>
+              </div>
+              <!-- country badge end -->
+
+              <span
+                class="w-1 h-1 bg-dashboard-text-lighter rounded-full block"
+              ></span>
+
+              <!-- Tier -->
+              <div class="flex items-center gap-1">
+                <img src="/img/profile-2user.svg" class="w-5" alt="" />
+                <span class="text-dashboard-text">Admin</span>
+              </div>
+              <!-- Tier end-->
+
+              <span
+                class="w-1 h-1 bg-dashboard-text-lighter rounded-full block"
+              ></span>
+
+              <!-- ID -->
+              <AppClipBoard text="234002390029">
+                <span class="text-dashboard-text"> ID: 23400239 </span>
+              </AppClipBoard>
+              <!-- ID end-->
+            </div>
+          </div>
+
+          <div class="flex gap-4 items-center">
+            <span class="text-xs md:text-sm">
+              <AppPills color="green">Active</AppPills>
+            </span>
+
+            <button class="text-dashboard-text flex items-center">
+              <Icon name="vent:empty-more" size="1.5rem"></Icon>
+            </button>
+          </div>
+        </div>
+        <!-- Profile data -->
       </div>
-      <p class="flex items-center gap-1 justify-center group">
-        <span class="text-xs md:text-sm text-dashboard-text-light">
-          ID: 234002390029
-        </span>
-        <button
-          class="inline-block mt-1 group-hover:text-brand-color-default text-dashboard-text-light"
-        >
-          <Icon name="vent:copy" size="1.2rem"></Icon>
-        </button>
-      </p>
     </div>
-    <!-- Profile data -->
   </div>
 </template>

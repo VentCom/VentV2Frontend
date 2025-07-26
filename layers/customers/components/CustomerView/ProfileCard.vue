@@ -4,14 +4,14 @@ import { AppClipBoard } from "#components";
 
 <template>
   <div
-    class="border border-dashboard-card-border rounded-[12px] w-full overflow-hidden"
+    class="border border-dashboard-card-border rounded-[12px] w-full overflow-hidden bg-brand-color-default"
   >
     <img
       src="/img/profile-bg-2.png"
       class="w-full h-[133px] object-cover object-center mix-blend-multiply"
       alt=""
     />
-    <div class="px-5 md:px-11 !pt-0 pb-5">
+    <div class="px-5 md:px-11 !pt-0 pb-5 bg-dashboard-bg">
       <div
         class="items-end flex gap-4 max-w-[990px] w-full mx-auto translate-y-[-30%]"
       >
