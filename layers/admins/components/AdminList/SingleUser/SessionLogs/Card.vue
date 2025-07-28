@@ -14,7 +14,7 @@ const props = withDefaults(
 <template>
   <div class="flex items-start gap-6">
     <div
-      class="w-[62px] text-right text-[13px] font-semibold text-dashboard-heading-blue shrink-0 whitespace-nowrap"
+      class="w-[62px] text-left text-[13px] text-dashboard-heading-blue shrink-0 whitespace-nowrap"
     >
       {{ type === "logged-in" ? "Logged In" : "Logged Out" }}
     </div>

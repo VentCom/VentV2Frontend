@@ -5,8 +5,8 @@
     <div
       class="border border-dashboard-card-border bg-white rounded-[8px] p-6 flex flex-col gap-4 w-full"
     >
-      <div class="text-center text-dashboard-text-light text-[13px] w-full">
-        Today
+      <div class="text-left text-dashboard-text-light text-[13px] w-full">
+        Today, July 26th, 2025
       </div>
 
       <div class="flex flex-col w-full">
