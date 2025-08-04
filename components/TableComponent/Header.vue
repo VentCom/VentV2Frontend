@@ -30,7 +30,7 @@ const toggleFilterShow = () => {
       class="flex flex-col md:flex-row gap-4 md:items-center w-full md:justify-between"
     >
       <p
-        class="inline-block w-full md:w-auto font-semibold text-base md:text-xl capitalize"
+        class="inline-block w-full md:w-auto font-medium text-base md:text-xl capitalize"
       >
         <slot name="title">
           {{ props.tableName }}

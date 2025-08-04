@@ -11,8 +11,8 @@ const data = walletListBody;
     :body="data"
     :rowRoute="'/wallets/$'"
     :cell-row-count="1"
-    :grid_cols_md="5"
-    :grid_cols_lg="5"
+    :grid_cols_md="11"
+    :grid_cols_lg="11"
     :grid_cols_xs="2"
   >
     <template #table-heading>
@@ -32,6 +32,22 @@ const data = walletListBody;
           </p>
         </div>
       </div>
+    </template>
+
+    <template #col_status="props">
+      <div class="h-full flex items-center w-full self-center">
+        <AppPills color="blue" :has-tick="true">{{
+          props.rowData.status
+        }}</AppPills>
+      </div>
+    </template>
+
+    <template #col_action>
+      <button
+        class="text-dashboard-text hover:text-brand-color-default flex w-full justify-end"
+      >
+        <Icon name="vent:empty-more" size="1.5rem"></Icon>
+      </button>
     </template>
 
     <template #table-footer>

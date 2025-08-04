@@ -1,11 +1,11 @@
 <script setup lang="ts">
 const links = ref([
   {
-    name: "Wallets Database",
+    name: "Wallets",
     route: "/wallets",
   },
   {
-    name: "USDT",
+    name: "Transaction Records",
     route: "/wallets/[user_uid]",
   },
 ]);
@@ -17,7 +17,11 @@ const links = ref([
     </div>
 
     <div class="w-full">
-      <WalletSingleWalletNetworkWallets></WalletSingleWalletNetworkWallets>
+      <WalletSingleWalletOverview></WalletSingleWalletOverview>
+    </div>
+
+    <div class="w-full">
+      <WalletSingleWalletTransactions></WalletSingleWalletTransactions>
     </div>
   </div>
 </template>

@@ -5,5 +5,7 @@ definePageMeta({
 });
 </script>
 <template>
-  <Registery />
+  <div>
+    <Registery />
+  </div>
 </template>

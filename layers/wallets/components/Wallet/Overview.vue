@@ -64,7 +64,9 @@ const setLevelColor = (stat: BusinessStatsData, level: number = 0): string => {
       class="border-b border-dashboard-card-divider pb-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between"
     >
       <div class="w-full">
-        <h2 class="font-bold text-dashboard-heading mb-1 text-base md:text-xl">
+        <h2
+          class="font-medium text-dashboard-heading mb-1 text-base md:text-xl"
+        >
           Wallets Overview
         </h2>
         <p class="text-[0.813rem]">
