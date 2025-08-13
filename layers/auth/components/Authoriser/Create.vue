@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { AppModal, AuthoriserModalSetupComplete } from "#components";
+import { generateQRCode } from "~/utils/helpers/QrCodeGenerator";
 
 const steps = ref([
   {
@@ -16,11 +17,47 @@ const steps = ref([
   },
 ]);
 
+const { responseData } = useInvitationStore();
+
+const generatedQrImage = ref<string>("");
+
+const qrCodeUrl = computed(() => responseData.value.qrCodeUrl || null);
+
+const tFaSecret = computed(() => {
+  const secret = responseData.value["2faSecret"];
+  if (!secret) return "";
+  // Add dash after every 4 characters
+  return secret.replace(/(.{4})/g, "$1-").slice(0, -1); // Remove trailing dash
+});
+
 const setupCompleteModal = ref<InstanceType<typeof AppModal> | null>(null);
 
 const goToNextStage = () => {
   setupCompleteModal.value?.showDialogBox();
 };
+
+const handleQrCode = () => {
+  generateQRCode(
+    {
+      text: qrCodeUrl.value || "",
+      width: 400,
+      color: "#000000",
+    },
+    "qrserver"
+  ).then((res) => {
+    generatedQrImage.value = res.dataUrl || "";
+  });
+};
+
+watch(
+  qrCodeUrl,
+  () => {
+    qrCodeUrl.value !== null && handleQrCode();
+  },
+  {
+    immediate: true,
+  }
+);
 </script>
 <template>
   <Teleport to="body">
@@ -74,7 +111,7 @@ const goToNextStage = () => {
         <div
           class="bg-default-bg border-12 rounded-4xl overflow-hidden border-brand-color-default w-full mb-6"
         >
-          <img src="/img/qr_code.svg" class="w-full" alt="" />
+          <img :src="generatedQrImage" class="w-full" alt="" />
         </div>
 
         <!-- divider -->
@@ -95,7 +132,7 @@ const goToNextStage = () => {
           <div
             class="flex-grow px-8 py-3 border border-input-border rounded-2xl font-mono font-bold text-lg md:text-2xl text-center tracking-wider"
           >
-            LKS7-43SW-HM92-0LKA
+            {{ tFaSecret }}
           </div>
           <button
             @click="goToNextStage"

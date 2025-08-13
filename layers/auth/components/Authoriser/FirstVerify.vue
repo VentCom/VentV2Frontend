@@ -1,13 +1,41 @@
 <script setup lang="ts">
 import { AppAuthLayout, AppPinCode, Icon } from "#components";
 
+const { setRouteActivity } = useOnboardingStore();
+
+const { verify2FA, verifying_2fa } = use2FAStore();
+
 const goBack = () => {
-  useRouter().push("/set-2fa");
+  setRouteActivity(OnboardingRouteNames.CREATE_2FA, true);
+};
+
+const digits = 6;
+
+const pinCode = ref("");
+
+const pinLengthIsValid = computed(() => {
+  return pinCode.value.length === digits;
+});
+
+const completeOnboarding = () => {
+  verify2FA(pinCode.value).then((res) => {
+    if (res?.status === true) {
+      useToastHandler().triggerToast(res.message, "success", "2FA verified");
+      return setTimeout(() => {
+        window.location.href = "/";
+      }, 700);
+    }
+    useToastHandler().triggerToast(
+      res?.message,
+      "error",
+      "2FA Verification Failed"
+    );
+  });
 };
 </script>
 
 <template>
-  <AppAuthLayout @cancel="">
+  <AppAuthLayout @cancel="goBack">
     <!-- body -->
     <div
       class="max-w-[705px] min-h-[80vh] w-full bg-auth-bg relative z-3 p-6 md:p-22 overflow-hidden"
@@ -40,8 +68,9 @@ const goBack = () => {
           <!-- Password input -->
           <div>
             <AppPinCode
-              :digits="6"
+              :digits="digits"
               :inputClass="'w-11 h-11 md:h-16 md:w-16'"
+              v-model="pinCode"
             ></AppPinCode>
           </div>
           <!-- Password input end-->
@@ -49,7 +78,13 @@ const goBack = () => {
 
         <!-- login button -->
         <div class="pt-5 w-full flex flex-col gap-6">
-          <AppButton block>Submit</AppButton>
+          <AppButton
+            :disabled="!pinLengthIsValid"
+            :loading="verifying_2fa"
+            @click="completeOnboarding"
+            block
+            >Submit</AppButton
+          >
           <div
             class="flex items-center gap-2 justify-center text-sm text-dashboard-text"
           >

@@ -1,5 +1,31 @@
 <script setup lang="ts">
 import { AppButton } from "#components";
+import { copyToClipboardWithResult } from "~/utils/helpers/ClipboardCopy";
+
+const { responseData } = useInvitationStore();
+
+const { setRouteActivity } = useOnboardingStore();
+
+const recoveryCodes = computed(() => {
+  return responseData.value.recoveryCodes;
+});
+
+const joinedRecoveryCodes = computed(() => {
+  return recoveryCodes.value.join("\n");
+});
+
+const copyToClipboard = async () => {
+  const result = await copyToClipboardWithResult(joinedRecoveryCodes.value);
+  useToastHandler().triggerToast(
+    "Recovery keys copied to clipboard",
+    "success",
+    "Copied Successfully"
+  );
+};
+
+const goTo2FaVerify = () => {
+  setRouteActivity(OnboardingRouteNames.VERIFY_2FA, true);
+};
 </script>
 
 <template>
@@ -18,34 +44,20 @@ import { AppButton } from "#components";
         </p>
       </div>
 
-      <div>
+      <div class="w-full">
         <div class="border border-dashboard-card-border rounded-[12px] p-6">
           <h2 class="text-dashboard-text-light mb-2 text-[13px]">
             Recovery Keys
           </h2>
 
-          <div class="grid grid-cols-2 gap-3">
-            <p
-              class="text-dashboard-text text-[13px] flex flex-col gap-1 items-start font-mono"
-            >
-              <span>ostrichiow002</span>
-              <span>298oakdo9lkdliosi</span>
-              <span>jijweo89a0sdfw9</span>
-              <span>shfisdfoi892900sdf</span>
-              <span>o9248ru9r89a8sdf </span>
-            </p>
-            <p
-              class="text-dashboard-text text-[13px] flex flex-col gap-1 items-end font-mono text-right"
-            >
-              <span> jog20rusojis89233</span>
-              <span>0i3os00sgf9u9u0wk</span>
-              <span>dfos889uw9u00skje</span>
-              <span>283029309sijijsvkwej </span>
-              <span>jwe99w8820s8920</span>
-            </p>
+          <div
+            class="grid grid-cols-2 gap-x-3 gap-y-1 text-dashboard-text text-[13px] font-mono w-full"
+          >
+            <p v-for="(code, index) in recoveryCodes">{{ code }},</p>
           </div>
         </div>
         <button
+          @click="copyToClipboard"
           class="mt-3 rounded-full px-4 py-2 border border-brand-color-007 text-brand-color-007 text-[13px] cursor-pointer"
         >
           Copy Keys
@@ -55,7 +67,9 @@ import { AppButton } from "#components";
 
     <div class="flex justify-center">
       <div class="w-[245px]">
-        <AppButton block>I have copied the keys</AppButton>
+        <AppButton @click="goTo2FaVerify" block
+          >I have copied the keys</AppButton
+        >
       </div>
     </div>
   </div>

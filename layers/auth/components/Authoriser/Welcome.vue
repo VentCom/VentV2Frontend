@@ -1,14 +1,15 @@
 <script setup lang="ts">
-definePageMeta({
-  pageTransition: {
-    name: "zoom",
-    mode: "out-in",
-  },
-});
+const { setToken } = useInvitationStore();
+const { setRouteActivity } = useOnboardingStore();
 
 const goToNewPassword = () => {
-  navigateTo("/create-password");
+  setRouteActivity(OnboardingRouteNames.CREATE_PASSWORD, true);
 };
+
+onMounted(() => {
+  const token = (useRoute().params?.token || "") as string;
+  setToken(token);
+});
 </script>
 <template>
   <section
