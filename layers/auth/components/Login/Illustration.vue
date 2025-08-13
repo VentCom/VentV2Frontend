@@ -3,9 +3,7 @@ import { register } from "swiper/element/bundle";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 register();
 
-const getInstance = (swiperInstance) => {
-  console.log(swiperInstance);
-};
+const getInstance = (swiperInstance) => {};
 
 const slides = ref([
   {

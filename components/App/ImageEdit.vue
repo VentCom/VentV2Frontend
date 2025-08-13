@@ -4,7 +4,6 @@ const collectImage = (e: Event) => {
   const target = e.target as HTMLInputElement;
   const file = target.files?.[0];
   selectedImageUrl.value = URL.createObjectURL(file!);
-  console.log(selectedImageUrl.value);
 };
 </script>
 <template>

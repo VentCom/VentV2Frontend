@@ -14,7 +14,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     // Fallback for older browsers or non-secure contexts
     return fallbackCopyToClipboard(text);
   } catch (error) {
-    console.error("Failed to copy to clipboard:", error);
+    // console.error("Failed to copy to clipboard:", error);
     return false;
   }
 }
@@ -65,7 +65,7 @@ function fallbackCopyToClipboard(text: string): boolean {
       selection?.removeAllRanges();
     }
   } catch (error) {
-    console.error("Fallback copy failed:", error);
+    // console.error("Fallback copy failed:", error);
     return false;
   }
 }
@@ -87,10 +87,10 @@ export async function copyToClipboardWithFeedback(
   // You can integrate this with your toast system
   if (success) {
     // Example: showToast(successMessage, 'success');
-    console.log(successMessage);
+    // console.log(successMessage);
   } else {
     // Example: showToast(errorMessage, 'error');
-    console.error(errorMessage);
+    // console.error(errorMessage);
   }
 
   return success;

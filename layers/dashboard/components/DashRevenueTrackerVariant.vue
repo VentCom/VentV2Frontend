@@ -49,9 +49,7 @@ const maxRevenue = computed(() => {
 
 const getBarHeight = (revenue: number) => {
   const height = (revenue / maxRevenue.value) * 100;
-  console.log(
-    `Revenue: ${revenue}, Max: ${maxRevenue.value}, Height: ${height}%`
-  );
+
   return height;
 };
 

@@ -319,7 +319,7 @@ export async function copyQRCodeToClipboard(dataUrl: string): Promise<boolean> {
     ]);
     return true;
   } catch (error) {
-    console.error("Failed to copy QR code to clipboard:", error);
+    // console.error("Failed to copy QR code to clipboard:", error);
     return false;
   }
 }
