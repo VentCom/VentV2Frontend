@@ -121,7 +121,7 @@ const goTo2FaCreate = () => {
       <!-- login button -->
       <div class="pt-5 w-full flex flex-col gap-6">
         <AppButton @click="goTo2FaCreate" :loading="accepting_invitation" block
-          >Create Button</AppButton
+          >Create Password</AppButton
         >
         <div
           class="flex items-center gap-2 justify-center text-sm text-dashboard-text"
