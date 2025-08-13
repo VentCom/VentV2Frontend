@@ -29,8 +29,7 @@ export const useInvitationStore = () => {
     ),
     token: useState<string>("useInvitationStore.token", () => ""),
     responseData: useState<IInvitationResponse>(
-      "useInvitationStore.responseData",
-      () => responseData
+      "useInvitationStore.responseData"
     ),
   };
 
@@ -74,29 +73,4 @@ export const useInvitationStore = () => {
     ...states,
     ...actions,
   };
-};
-
-const responseData = {
-  user: {
-    id: 1,
-    name: "John Doe",
-    email: "nkezesylvester22@gmail.com",
-    isAdmin: true,
-    reference: "02798b97-cb18-4094-aec6-b9c44d3d767a",
-  },
-  qrCodeUrl:
-    "otpauth://totp/Laravel:nkezesylvester22%40gmail.com?secret=EXN27OPNUEKDGOR2&issuer=Laravel&algorithm=SHA1&digits=6&period=30",
-  "2faSecret": "EXN27OPNUEKDGOR2",
-  recoveryCodes: [
-    "2S36ZXMREL",
-    "TVBXPVCBCB",
-    "3B3MDFD6TX",
-    "TUQ31IJW9H",
-    "HSB8PZMSUH",
-    "FAV7A5IWWT",
-    "IGZCER1G7T",
-    "TFBVUTJEJH",
-    "XZ1ITXKU52",
-    "HB6T2UFLI6",
-  ],
 };

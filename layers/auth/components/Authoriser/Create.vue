@@ -5,7 +5,7 @@ import { generateQRCode } from "~/utils/helpers/QrCodeGenerator";
 const steps = ref([
   {
     position: 1,
-    text: "Open your authenticator app to scan QR code",
+    text: "Open your authenticator app (Google Authenticator, Microsoft Authenticator, etc.) to scan QR code",
   },
   {
     position: 2,

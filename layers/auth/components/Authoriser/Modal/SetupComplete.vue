@@ -11,7 +11,7 @@ const recoveryCodes = computed(() => {
 });
 
 const joinedRecoveryCodes = computed(() => {
-  return recoveryCodes.value.join("\n");
+  return recoveryCodes.value.join(" , ");
 });
 
 const copyToClipboard = async () => {
